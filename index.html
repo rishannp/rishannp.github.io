@@ -6,8 +6,8 @@
   <title>Rishan Patel - Brain-Computer Interface Research</title>
   <meta name="description" content="BCI researcher at UCL. Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta name="author" content="Rishan Patel" />
-  
-  <!-- Open Graph / Twitter for clean link unfurls -->
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Rishan Patel - Brain-Computer Interface Research" />
   <meta property="og:description" content="BCI researcher in London (UCL). Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta property="og:type" content="website" />
@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://rishannp.github.io/assets/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD (basic person/org schema) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,20 +34,20 @@
   }
   </script>
 
-  <!-- Fonts (system first, then Inter as progressive enhancement) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- THEME VARIABLES ---------- */
+    /* ---------- THEME VARIABLES (default to dark) ---------- */
     :root {
-      --bg: #0b0c0f;   /* default to dark */
+      --bg: #0b0c0f;
       --fg: #e9eef4;
       --muted: #aab3c2;
       --accent: #48CFAD;
       --accent2: #37BC98;
       --grey: #e9ecef;
-      --card: #14171c;         /* dark card so light text is readable */
+      --card: #14171c;         /* dark surface so light text remains legible */
       --card-border: #222832;
       --ring: #37BC98;
       --shadow: 0 10px 30px rgba(0,0,0,0.35);
@@ -67,6 +67,7 @@
       --shadow: 0 10px 30px rgba(10, 30, 90, 0.08);
     }
 
+    /* ---------- BASE ---------- */
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--fg); }
     a { color: var(--accent); text-decoration: none; }
@@ -96,24 +97,16 @@
     .hero h1 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 8px; }
     .hero p.lede { color: var(--muted); margin-bottom: 20px; font-size: 18px; }
 
-    /* Thicker squiggly underline */
-    .squiggle {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
-    }
+    /* ---------- Thicker squiggly underline ---------- */
+    .squiggle { position: relative; display: inline-block; z-index: 1; }
     .squiggle::after {
       content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;             /* lower to give thicker line space */
-      width: 100%;
-      height: 10px;             /* room for thicker stroke */
+      position: absolute; left: 0; bottom: -5px;
+      width: 100%; height: 10px;
       background-repeat: repeat-x;
-      background-size: 28px 10px; /* wider tile for smooth wave */
+      background-size: 28px 10px;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'><path d='M0 5 Q7 0 14 5 T28 5' stroke='%2348CFAD' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-      opacity: 0.95;
-      pointer-events: none;
+      opacity: 0.95; pointer-events: none;
     }
 
     .card { background: var(--card); border: 1px solid var(--card-border); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; color: var(--fg); }
@@ -152,7 +145,7 @@
     }
     header, main, footer { position: relative; z-index: 1; }
 
-    /* Timeline styles */
+    /* ---------- Timeline ---------- */
     .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
     .timeline::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: color-mix(in oklab, var(--fg) 12%, transparent); }
     .timeline-item { position: relative; padding-left: 36px; margin-bottom: 14px; }
@@ -161,7 +154,7 @@
     .timeline-item h3 { margin: 0 0 4px; font-size: 16px; }
     .timeline-item p { margin: 0; color: var(--muted); }
 
-    /* Carousel styles */
+    /* ---------- Carousel ---------- */
     .carousel { position: relative; overflow: hidden; }
     .carousel-track { display: flex; gap: 0; scroll-behavior: smooth; transition: transform 0.5s ease; }
     .carousel .slide { min-width: 100%; }
@@ -175,7 +168,6 @@
     .carousel-dots button { width:8px; height:8px; border-radius:50%; border:1px solid color-mix(in oklab, var(--accent2) 50%, var(--card)); background: color-mix(in oklab, var(--accent) 10%, var(--card)); cursor:pointer; }
     .carousel-dots button.active { background: var(--accent); }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .carousel-track { transition: none !important; }
     }
@@ -203,7 +195,7 @@
         <p class="lede">I build adaptive Brain–Computer Interfaces using EEG, graph neural networks, and real-time neurotechnology — focused on assistive communication for ALS.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a class="btn" href="#contact">Get in touch</a>
-          <!-- Download CV removed -->
+          <!-- CV button intentionally removed -->
         </div>
         <p style="margin-top:10px;color:var(--muted);font-size:14px;">UCL · PhD · IET Prize 21 · IHE Fellow 24/25</p>
       </div>
@@ -321,14 +313,37 @@
           <button class="carousel-btn prev">‹</button>
           <div class="carousel-track">
             <figure class="slide is-active"><img loading="lazy" src="assets/research_talk.jpg" alt="Research talk"><figcaption>Research Talk</figcaption></figure>
+
             <figure class="slide"><img loading="lazy" src="media/research_talk_2.jpg" alt="Research talk 2"><figcaption>Research Talk 2</figcaption></figure>
-            <figure class="slide"><video src="media/bcivideo.mp4" controls preload="metadata"></video><figcaption>BCI Demo Video</figcaption></figure>
+
+            <figure class="slide">
+              <video controls preload="metadata" playsinline>
+                <source src="media/bcivideo.mp4" type="video/mp4">
+                Sorry, your browser can’t play this video.
+              </video>
+              <figcaption>BCI Demo Video</figcaption>
+            </figure>
+
             <figure class="slide"><img loading="lazy" src="media/et1.jpg" alt="Event 1"><figcaption>Event 1</figcaption></figure>
             <figure class="slide"><img loading="lazy" src="media/et2.jpg" alt="Event 2"><figcaption>Event 2</figcaption></figure>
             <figure class="slide"><img loading="lazy" src="media/tbc1.jpg" alt="Talk BCI 1"><figcaption>Talk BCI 1</figcaption></figure>
             <figure class="slide"><img loading="lazy" src="media/tbc2.jpg" alt="Talk BCI 2"><figcaption>Talk BCI 2</figcaption></figure>
-            <figure class="slide"><video src="media/pa1.mp4" controls preload="metadata"></video><figcaption>Project Kobe — 1</figcaption></figure>
-            <figure class="slide"><video src="media/pa2.mp4" controls preload="metadata"></video><figcaption>Project Kobe — 2</figcaption></figure>
+
+            <figure class="slide">
+              <video controls preload="metadata" playsinline>
+                <source src="media/pa1.mp4" type="video/mp4">
+                Sorry, your browser can’t play this video.
+              </video>
+              <figcaption>Project Kobe — 1</figcaption>
+            </figure>
+
+            <figure class="slide">
+              <video controls preload="metadata" playsinline>
+                <source src="media/pa2.mp4" type="video/mp4">
+                Sorry, your browser can’t play this video.
+              </video>
+              <figcaption>Project Kobe — 2</figcaption>
+            </figure>
           </div>
           <button class="carousel-btn next">›</button>
           <div class="carousel-dots"></div>
@@ -351,7 +366,6 @@
         <ul class="clean">
           <li>UK BCI Community — peer-driven meetups, lab exchanges, one-slide talks.</li>
           <li>STEM outreach: Brilliant Club, IET YP Ambassador, Nuffield mentor.</li>
-	  <li>Talks: Centre for Neurorehabilitation at Queen Square, SMC2024, BioMedEng2024, BCI Meeting 2025, NER2025 </li>
         </ul>
       </div>
     </section>
@@ -364,7 +378,7 @@
           📧 <a href="mailto:uceerjp@ucl.ac.uk">uceerjp@ucl.ac.uk</a><br>
           🔗 <a href="https://www.linkedin.com/in/rishannp/" target="_blank" rel="noopener">linkedin.com/in/rishannp</a>
         </p>
-        <!-- Removed the CV instruction line -->
+        <!-- CV line removed -->
       </div>
     </section>
 
@@ -374,10 +388,10 @@
   </main>
 
   <script>
-    // -- Footer year
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // -- Theme toggle (saved pref -> OS pref -> dark)
+    // Theme toggle (saved pref -> OS pref -> dark default)
     (function initTheme(){
       const toggle = document.getElementById('themeToggle');
       const key = 'theme-preference';
@@ -396,7 +410,7 @@
       });
     })();
 
-    // -- ORCID fetch -> build publications list
+    // ORCID fetch
     const ORCID_ID = '0009-0006-8848-8574';
     const pubList = document.getElementById('pub-list');
     async function loadORCIDWorks(orcid) {
@@ -427,7 +441,7 @@
     }
     loadORCIDWorks(ORCID_ID);
 
-    // -- Carousel with autoplay; pauses on hover/focus and while a video plays
+    // Carousel with autoplay; pauses on hover/focus and while a video plays
     function initCarousel(rootEl) {
       const track = rootEl.querySelector('.carousel-track');
       const slides = Array.from(track.children);
