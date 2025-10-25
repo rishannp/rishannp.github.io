@@ -6,8 +6,8 @@
   <title>Rishan Patel - Brain-Computer Interface Research</title>
   <meta name="description" content="BCI researcher at UCL. Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta name="author" content="Rishan Patel" />
-  
-  <!-- Open Graph / Twitter for clean link unfurls -->
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Rishan Patel - Brain-Computer Interface Research" />
   <meta property="og:description" content="BCI researcher in London (UCL). Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta property="og:type" content="website" />
@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://rishannp.github.io/assets/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD (basic person/org schema) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,89 +34,119 @@
   }
   </script>
 
-  <!-- Fonts (system first, then Inter as progressive enhancement) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== THEME VARIABLES =====
+       Default to dark; light is opt-in via [data-theme="light"].
+    */
     :root {
-      --bg: #0b0c0f; /* default to dark; I live in terminals */
+      --bg: #0b0c0f;
       --fg: #e9eef4;
       --muted: #aab3c2;
-      --accent: #48CFAD; /* primary mint */
-      --accent2: #37BC98; /* secondary mint */
-      --grey: #e9ecef; /* light grey */
-      --card: #ffffff;
-      --ring: #37BC98;
+      --accent: #48CFAD;
+      --accent2: #37BC98;
+      --card: #14171c;            /* dark surface so light text is legible */
+      --card-border: #222832;
       --shadow: 0 10px 30px rgba(0,0,0,0.35);
       --radius: 16px;
       --maxw: 980px;
     }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f7f9fb;
-        --fg: #11131a;
-        --muted: #5b6577;
-        --accent: #48CFAD;
-        --accent2: #37BC98;
-        --grey: #e9ecef;
-        --card: #ffffff;
-        --ring: #37BC98;
-        --shadow: 0 10px 30px rgba(10, 30, 90, 0.08);
-      }
+    html[data-theme="light"] {
+      --bg: #f7f9fb;
+      --fg: #11131a;
+      --muted: #5b6577;
+      --accent: #48CFAD;
+      --accent2: #37BC98;
+      --card: #ffffff;
+      --card-border: #e8ecf2;
+      --shadow: 0 10px 30px rgba(10, 30, 90, 0.08);
     }
 
+    /* ===== BASE ===== */
     * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
 
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky; top: 0;
+      backdrop-filter: blur(8px);
       background: color-mix(in oklab, var(--bg) 80%, transparent);
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       z-index: 10;
     }
-    nav a { margin-left: 16px; font-weight: 600; opacity: 0.9; }
-    .toggle { cursor: pointer; border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent); background: var(--card); padding: 8px 10px; border-radius: 12px; }
+    nav a { margin-left: 16px; font-weight: 600; opacity: .9; }
+    .toggle {
+      cursor: pointer;
+      border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
+      background: var(--card);
+      color: var(--fg);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
 
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 25%, transparent), transparent), var(--card);
-      color: var(--fg); padding: 10px 16px; border-radius: calc(var(--radius) - 4px);
+      background: var(--card);
+      color: var(--fg);
+      padding: 10px 16px;
+      border-radius: calc(var(--radius) - 4px);
       border: 1px solid color-mix(in oklab, var(--accent2) 45%, var(--card));
-      box-shadow: var(--shadow); text-decoration: none; font-weight: 600;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      text-decoration: none;
     }
     .btn:hover { transform: translateY(-1px); }
 
-    .hero { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; padding: 48px 0; }
-    .hero h1 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 8px; }
-    .hero p.lede { color: var(--muted); margin-bottom: 20px; font-size: 18px; }
-
-    /* Squiggly underline for name */
-    .squiggle {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px; align-items: center;
+      padding: 48px 0;
     }
+    .hero h1 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 8px; }
+    .hero .lede { color: var(--muted); margin-bottom: 20px; font-size: 18px; }
+
+    /* ===== SQUIGGLY UNDERLINE (thicker) ===== */
+    .squiggle { position: relative; display: inline-block; z-index: 1; }
     .squiggle::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -4px; /* tuck just under baseline */
-      width: 100%;
-      height: 6px;
+      left: 0; bottom: -5px;
+      width: 100%; height: 10px;
       background-repeat: repeat-x;
-      background-size: 20px 6px; /* wave width x height */
-      /* Data-URI SVG; %23 is '#' encoded; stroke matches --accent */
-      background-image: url("data:image/svg+xml;utf8,<svg width='20' height='6' xmlns='http://www.w3.org/2000/svg'><path d='M0 3 Q5 0 10 3 T20 3' stroke='%2348CFAD' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
-      opacity: 0.9;
+      background-size: 28px 10px;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'>\
+<path d='M0 5 Q7 0 14 5 T28 5' stroke='%2348CFAD' stroke-width='3' fill='none' stroke-linecap='round'/>\
+</svg>");
+      opacity: .95;
       pointer-events: none;
     }
 
-    .card { background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
+      color: var(--fg);
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+
     h2 { font-size: 22px; margin-bottom: 12px; position: relative; }
     h2::after {
       content: ""; position: absolute; left: 0; bottom: -6px; height: 3px; width: 56px;
@@ -124,13 +154,15 @@
       border-radius: 2px;
     }
 
-    .pill { display:inline-block; padding: 2px 8px; border-radius:999px; background: color-mix(in oklab, var(--accent) 15%, var(--card)); border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card)); font-size: 12px; color: var(--muted); }
+    .pill {
+      display:inline-block; padding: 2px 8px; border-radius: 999px;
+      background: color-mix(in oklab, var(--accent) 15%, var(--card));
+      border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card));
+      font-size: 12px; color: var(--muted);
+    }
     ul.clean { list-style: none; padding: 0; margin: 0; }
     ul.clean li { padding: 10px 0; border-bottom: 1px dashed color-mix(in oklab, var(--fg) 10%, transparent); }
     ul.clean li:last-child { border-bottom: none; }
-
-    .card { transition: transform .2s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
 
     footer { margin: 48px 0 16px; color: var(--muted); font-size: 14px; text-align: center; }
 
@@ -157,26 +189,43 @@
     .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
     .timeline::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: color-mix(in oklab, var(--fg) 12%, transparent); }
     .timeline-item { position: relative; padding-left: 36px; margin-bottom: 14px; }
-    .timeline-item::before { content: ""; position: absolute; left: 6px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent); }
+    .timeline-item::before {
+      content: ""; position: absolute; left: 6px; top: 6px; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+    }
     .timeline-item .when { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
     .timeline-item h3 { margin: 0 0 4px; font-size: 16px; }
     .timeline-item p { margin: 0; color: var(--muted); }
 
-    /* Carousel styles */
+    /* Carousel */
     .carousel { position: relative; overflow: hidden; }
     .carousel-track { display: flex; gap: 0; scroll-behavior: smooth; transition: transform 0.5s ease; }
     .carousel .slide { min-width: 100%; }
     .carousel img, .carousel video { width:100%; height:auto; border-radius: 10px; display:block; }
     .carousel figure { position: relative; margin: 0; }
-    .carousel figcaption { position:absolute; left:10px; bottom:10px; background: color-mix(in oklab, var(--bg) 60%, transparent); color: var(--fg); padding:6px 10px; border-radius:8px; font-size:12px; }
-    .carousel-btn { position:absolute; top:50%; transform: translateY(-50%); border:none; background: color-mix(in oklab, var(--card) 70%, transparent); padding:8px 12px; border-radius:12px; cursor:pointer; box-shadow: var(--shadow); }
+    .carousel figcaption {
+      position:absolute; left:10px; bottom:10px;
+      background: color-mix(in oklab, var(--bg) 60%, transparent);
+      color: var(--fg); padding:6px 10px; border-radius:8px; font-size:12px;
+    }
+    .carousel-btn {
+      position:absolute; top:50%; transform: translateY(-50%);
+      border:none; background: color-mix(in oklab, var(--card) 70%, transparent);
+      padding:8px 12px; border-radius:12px; cursor:pointer; box-shadow: var(--shadow);
+      color: var(--fg);
+    }
     .carousel-btn.prev { left: 10px; }
     .carousel-btn.next { right: 10px; }
     .carousel-dots { display:flex; gap:6px; justify-content:center; margin-top:8px; }
-    .carousel-dots button { width:8px; height:8px; border-radius:50%; border:1px solid color-mix(in oklab, var(--accent2) 50%, var(--card)); background: color-mix(in oklab, var(--accent) 10%, var(--card)); cursor:pointer; }
+    .carousel-dots button {
+      width:8px; height:8px; border-radius:50%;
+      border:1px solid color-mix(in oklab, var(--accent2) 50%, var(--card));
+      background: color-mix(in oklab, var(--accent) 10%, var(--card));
+      cursor:pointer;
+    }
     .carousel-dots button.active { background: var(--accent); }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .carousel-track { transition: none !important; }
     }
@@ -204,7 +253,7 @@
         <p class="lede">I build adaptive Brain–Computer Interfaces using EEG, graph neural networks, and real-time neurotechnology — focused on assistive communication for ALS.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a class="btn" href="#contact">Get in touch</a>
-          <a class="btn" href="./Rishan_Patel_CV.pdf">Download CV</a>
+          <!-- Download CV removed -->
         </div>
         <p style="margin-top:10px;color:var(--muted);font-size:14px;">UCL · PhD · IET Prize 21 · IHE Fellow 24/25</p>
       </div>
@@ -324,12 +373,6 @@
             <figure class="slide is-active"><img loading="lazy" src="assets/research_talk.jpg" alt="Research talk"><figcaption>Research Talk</figcaption></figure>
             <figure class="slide"><img loading="lazy" src="media/research_talk_2.jpg" alt="Research talk 2"><figcaption>Research Talk 2</figcaption></figure>
             <figure class="slide"><video src="media/bcivideo.mp4" controls preload="metadata"></video><figcaption>BCI Demo Video</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/et1.jpg" alt="Event 1"><figcaption>Event 1</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/et2.jpg" alt="Event 2"><figcaption>Event 2</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc1.jpg" alt="Talk BCI 1"><figcaption>Talk BCI 1</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc2.jpg" alt="Talk BCI 2"><figcaption>Talk BCI 2</figcaption></figure>
-            <figure class="slide"><video src="media/pa1.mp4" controls preload="metadata"></video><figcaption>Project Kobe — 1</figcaption></figure>
-            <figure class="slide"><video src="media/pa2.mp4" controls preload="metadata"></video><figcaption>Project Kobe — 2</figcaption></figure>
           </div>
           <button class="carousel-btn next">›</button>
           <div class="carousel-dots"></div>
@@ -364,7 +407,7 @@
           📧 <a href="mailto:uceerjp@ucl.ac.uk">uceerjp@ucl.ac.uk</a><br>
           🔗 <a href="https://www.linkedin.com/in/rishannp/" target="_blank" rel="noopener">linkedin.com/in/rishannp</a>
         </p>
-        <p style="font-size:14px;color:var(--muted);">Drop your CV at <code>/Rishan_Patel_CV.pdf</code> to enable the download button in the hero.</p>
+        <!-- CV download note removed -->
       </div>
     </section>
 
@@ -374,22 +417,28 @@
   </main>
 
   <script>
-    // -- Footer year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // -- Theme toggle (persist preference)
-    const toggle = document.getElementById('themeToggle');
-    const key = 'theme-preference';
-    const root = document.documentElement;
-    const applyTheme = (t) => root.setAttribute('data-theme', t);
-    const saved = localStorage.getItem(key);
-    if (saved) applyTheme(saved);
-    toggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      applyTheme(next); localStorage.setItem(key, next);
-    });
+    // Theme: saved pref -> OS pref -> dark
+    (function initTheme(){
+      const key = 'theme-preference';
+      const root = document.documentElement;
+      const saved = localStorage.getItem(key);
+      if (saved === 'light' || saved === 'dark') {
+        root.setAttribute('data-theme', saved);
+      } else {
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+      }
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(key, next);
+      });
+    })();
 
-    // -- ORCID fetch -> build publications list
+    // ORCID fetch
     const ORCID_ID = '0009-0006-8848-8574';
     const pubList = document.getElementById('pub-list');
     async function loadORCIDWorks(orcid) {
@@ -413,14 +462,16 @@
         pubList.innerHTML = '';
         for (const it of items) {
           const li = document.createElement('li');
-          li.innerHTML = `<strong>${it.year}</strong> — ${it.url ? `<a href='${it.url}'>${it.title}</a>` : it.title}`;
+          li.innerHTML = `<strong>${it.year || ''}</strong> ${it.year ? '— ' : ''}${it.url ? `<a href="${it.url}">${it.title}</a>` : it.title}`;
           pubList.appendChild(li);
         }
-      } catch (err) { pubList.innerHTML = `<li>Could not load ORCID data (${err.message})</li>`; }
+      } catch (err) {
+        pubList.innerHTML = `<li>Could not load ORCID data (${err.message})</li>`;
+      }
     }
     loadORCIDWorks(ORCID_ID);
 
-    // -- Carousel with autoplay; pauses on hover/focus and while a video plays
+    // Carousel with autoplay; pauses on hover/focus and while a video plays
     function initCarousel(rootEl) {
       const track = rootEl.querySelector('.carousel-track');
       const slides = Array.from(track.children);
@@ -435,7 +486,7 @@
         dots.querySelectorAll('button').forEach((d, j) => d.classList.toggle('active', j === idx));
       }
 
-      // Build dots once
+      // Build dots
       slides.forEach((_, i) => {
         const b = document.createElement('button');
         b.addEventListener('click', () => { go(i); restart(); });
@@ -445,7 +496,6 @@
       btnPrev?.addEventListener('click', () => { go(idx - 1); restart(); });
       btnNext?.addEventListener('click', () => { go(idx + 1); restart(); });
 
-      // Autoplay (respect reduced motion)
       const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const enabled = (rootEl.getAttribute('data-autoplay') || 'true') !== 'false' && !reduceMotion;
       const interval = parseInt(rootEl.getAttribute('data-interval') || '6000', 10);
