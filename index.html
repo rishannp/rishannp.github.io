@@ -430,10 +430,20 @@
         transition: none !important;
       }
     }
+
+    #network-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
+  <canvas id="network-bg"></canvas>
   <header class="wrap">
     <div style="display:flex;align-items:center;gap:10px;">
       <span class="pill">BCI · EEG · Graph ML · Deep Learning · Healthcare Engineering</span>
@@ -839,6 +849,151 @@
       start();
     }
     document.querySelectorAll('.carousel').forEach(initCarousel);
+
+    // Network Background Effect
+    (function initNetworkBg() {
+      const canvas = document.getElementById('network-bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      // Configuration
+      const config = {
+        count: 80,            // Number of particles
+        radius: 2,           // Particle radius
+        dist: 150,           // Max distance for connection
+        speed: 0.5,          // Base speed
+        mouseDist: 200       // Mouse interaction radius
+      };
+
+      // Mouse state
+      const mouse = { x: -1000, y: -1000 };
+      window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      // Colors - updated dynamically
+      let colorDot = '#48CFAD';
+      let colorLine = 'rgba(72, 207, 173, 0.2)';
+
+      function updateColors() {
+        const style = getComputedStyle(document.documentElement);
+        // Use accent color but ensure we have a fallback
+        const accent = style.getPropertyValue('--accent').trim() || '#48CFAD';
+        const fg = style.getPropertyValue('--fg').trim() || '#e9eef4';
+
+        // Convert hex to rgb for rgba manipulation if needed, but for now:
+        // Dots: accent color
+        colorDot = accent;
+        // Lines: faint accent or fg
+        colorLine = accent; // We will use globalAlpha for transparency
+      }
+
+      // Update colors initially and on theme toggle
+      updateColors();
+      const toggle = document.getElementById('themeToggle');
+      if (toggle) toggle.addEventListener('click', () => setTimeout(updateColors, 50));
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * config.speed;
+          this.vy = (Math.random() - 0.5) * config.speed;
+          this.size = Math.random() * config.radius + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          // Bounce off edges
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = colorDot;
+          ctx.globalAlpha = 0.6;
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        // Adjust count based on screen size (less on mobile)
+        const density = Math.floor(width * height / 15000);
+        const count = Math.min(config.count, density);
+
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', () => { resize(); particles.forEach(p => { p.x = Math.min(p.x, width); p.y = Math.min(p.y, height); }); });
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Check reduced motion
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        particles.forEach((p, index) => {
+          if (!reduceMotion) p.update();
+          p.draw();
+
+          // Connect to other particles
+          for (let j = index + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < config.dist) {
+              ctx.beginPath();
+              ctx.strokeStyle = colorLine;
+              ctx.globalAlpha = 1 - (dist / config.dist);
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
+          }
+
+          // Connect to mouse
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < config.mouseDist) {
+            ctx.beginPath();
+            ctx.strokeStyle = colorLine;
+            ctx.globalAlpha = 1 - (dist / config.mouseDist);
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+
+            // Gentle attraction to mouse
+            if (!reduceMotion) {
+              p.x -= dx * 0.005;
+              p.y -= dy * 0.005;
+            }
+          }
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      animate();
+    })();
   </script>
 </body>
 
