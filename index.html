@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rishan Patel - Brain-Computer Interface Research</title>
-  <meta name="description" content="BCI researcher at UCL. Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
+  <meta name="description"
+    content="BCI researcher at UCL. Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta name="author" content="Rishan Patel" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Rishan Patel - Brain-Computer Interface Research" />
-  <meta property="og:description" content="BCI researcher in London (UCL). Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
+  <meta property="og:description"
+    content="BCI researcher in London (UCL). Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rishannp.github.io/" />
   <meta property="og:image" content="https://rishannp.github.io/assets/og-card.png" />
@@ -47,13 +50,15 @@
       --accent: #48CFAD;
       --accent2: #37BC98;
       --grey: #e9ecef;
-      --card: #14171c;         /* dark surface so light text remains legible */
+      --card: #14171c;
+      /* dark surface so light text remains legible */
       --card-border: #222832;
       --ring: #37BC98;
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       --radius: 16px;
       --maxw: 980px;
     }
+
     html[data-theme="light"] {
       --bg: #f7f9fb;
       --fg: #11131a;
@@ -68,111 +73,366 @@
     }
 
     /* ---------- BASE ---------- */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--fg); }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 24px;
+    }
 
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
       background: color-mix(in oklab, var(--bg) 80%, transparent);
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       z-index: 10;
     }
-    nav a { margin-left: 16px; font-weight: 600; opacity: 0.9; }
-    .toggle { cursor: pointer; border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent); background: var(--card); color: var(--fg); padding: 8px 10px; border-radius: 12px; }
+
+    nav a {
+      margin-left: 16px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .toggle {
+      cursor: pointer;
+      border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
+      background: var(--card);
+      color: var(--fg);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 25%, transparent), transparent), var(--card);
-      color: var(--fg); padding: 10px 16px; border-radius: calc(var(--radius) - 4px);
+      color: var(--fg);
+      padding: 10px 16px;
+      border-radius: calc(var(--radius) - 4px);
       border: 1px solid color-mix(in oklab, var(--accent2) 45%, var(--card));
-      box-shadow: var(--shadow); text-decoration: none; font-weight: 600;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      font-weight: 600;
     }
-    .btn:hover { transform: translateY(-1px); }
 
-    .hero { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; padding: 48px 0; }
-    .hero h1 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 8px; }
-    .hero p.lede { color: var(--muted); margin-bottom: 20px; font-size: 18px; }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+      padding: 48px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin-bottom: 8px;
+    }
+
+    .hero p.lede {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
 
     /* ---------- Thicker squiggly underline ---------- */
-    .squiggle { position: relative; display: inline-block; z-index: 1; }
+    .squiggle {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
     .squiggle::after {
       content: "";
-      position: absolute; left: 0; bottom: -5px;
-      width: 100%; height: 10px;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 10px;
       background-repeat: repeat-x;
       background-size: 28px 10px;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'><path d='M0 5 Q7 0 14 5 T28 5' stroke='%2348CFAD' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-      opacity: 0.95; pointer-events: none;
+      opacity: 0.95;
+      pointer-events: none;
     }
 
-    .card { background: var(--card); border: 1px solid var(--card-border); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; color: var(--fg); }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease;
+      color: var(--fg);
+    }
 
-    h2 { font-size: 22px; margin-bottom: 12px; position: relative; }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
     h2::after {
-      content: ""; position: absolute; left: 0; bottom: -6px; height: 3px; width: 56px;
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      height: 3px;
+      width: 56px;
       background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent2) 60%, var(--accent)));
       border-radius: 2px;
     }
 
-    .pill { display:inline-block; padding: 2px 8px; border-radius:999px; background: color-mix(in oklab, var(--accent) 15%, var(--card)); border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card)); font-size: 12px; color: var(--muted); }
-    ul.clean { list-style: none; padding: 0; margin: 0; }
-    ul.clean li { padding: 10px 0; border-bottom: 1px dashed color-mix(in oklab, var(--fg) 10%, transparent); }
-    ul.clean li:last-child { border-bottom: none; }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--accent) 15%, var(--card));
+      border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card));
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-    footer { margin: 48px 0 16px; color: var(--muted); font-size: 14px; text-align: center; }
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.clean li {
+      padding: 10px 0;
+      border-bottom: 1px dashed color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+
+    ul.clean li:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      margin: 48px 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
 
     /* Subtle scientific grid overlay */
     body::before {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
       background:
         linear-gradient(transparent 24px, color-mix(in oklab, var(--fg) 5%, transparent) 25px) 0 0/100% 25px,
         linear-gradient(90deg, transparent 24px, color-mix(in oklab, var(--fg) 5%, transparent) 25px) 0 0/25px 100%;
-      opacity: .08; mix-blend-mode: soft-light;
+      opacity: .08;
+      mix-blend-mode: soft-light;
     }
+
     @media (prefers-reduced-motion: no-preference) {
       body::after {
-        content: ""; position: fixed; inset: -50% -50%; pointer-events: none; z-index: 0;
+        content: "";
+        position: fixed;
+        inset: -50% -50%;
+        pointer-events: none;
+        z-index: 0;
         background: radial-gradient(60% 60% at 50% 50%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%);
-        filter: blur(60px); animation: drift 18s linear infinite;
+        filter: blur(60px);
+        animation: drift 18s linear infinite;
         opacity: .3;
       }
-      @keyframes drift { to { transform: rotate(360deg); } }
+
+      @keyframes drift {
+        to {
+          transform: rotate(360deg);
+        }
+      }
     }
-    header, main, footer { position: relative; z-index: 1; }
+
+    header,
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
 
     /* ---------- Timeline ---------- */
-    .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
-    .timeline::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: color-mix(in oklab, var(--fg) 12%, transparent); }
-    .timeline-item { position: relative; padding-left: 36px; margin-bottom: 14px; }
-    .timeline-item::before { content: ""; position: absolute; left: 6px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent); }
-    .timeline-item .when { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-    .timeline-item h3 { margin: 0 0 4px; font-size: 16px; }
-    .timeline-item p { margin: 0; color: var(--muted); }
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+    }
+
+    .timeline-item .when {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
 
     /* ---------- Carousel ---------- */
-    .carousel { position: relative; overflow: hidden; }
-    .carousel-track { display: flex; gap: 0; scroll-behavior: smooth; transition: transform 0.5s ease; }
-    .carousel .slide { min-width: 100%; }
-    .carousel img, .carousel video { width:100%; height:auto; border-radius: 10px; display:block; }
-    .carousel figure { position: relative; margin: 0; }
-    .carousel figcaption { position:absolute; left:10px; bottom:10px; background: color-mix(in oklab, var(--bg) 60%, transparent); color: var(--fg); padding:6px 10px; border-radius:8px; font-size:12px; }
-    .carousel-btn { position:absolute; top:50%; transform: translateY(-50%); border:none; background: color-mix(in oklab, var(--card) 70%, transparent); padding:8px 12px; border-radius:12px; cursor:pointer; box-shadow: var(--shadow); color: var(--fg); }
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
-    .carousel-dots { display:flex; gap:6px; justify-content:center; margin-top:8px; }
-    .carousel-dots button { width:8px; height:8px; border-radius:50%; border:1px solid color-mix(in oklab, var(--accent2) 50%, var(--card)); background: color-mix(in oklab, var(--accent) 10%, var(--card)); cursor:pointer; }
-    .carousel-dots button.active { background: var(--accent); }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 0;
+      scroll-behavior: smooth;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel .slide {
+      min-width: 100%;
+    }
+
+    .carousel img,
+    .carousel video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .carousel figure {
+      position: relative;
+      margin: 0;
+    }
+
+    .carousel figcaption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: color-mix(in oklab, var(--bg) 60%, transparent);
+      color: var(--fg);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: color-mix(in oklab, var(--card) 70%, transparent);
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      color: var(--fg);
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .carousel-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid color-mix(in oklab, var(--accent2) 50%, var(--card));
+      background: color-mix(in oklab, var(--accent) 10%, var(--card));
+      cursor: pointer;
+    }
+
+    .carousel-dots button.active {
+      background: var(--accent);
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      .carousel-track { transition: none !important; }
+      .carousel-track {
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="wrap">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -192,7 +452,8 @@
     <section class="hero">
       <div>
         <h1>Hi, I'm <span class="squiggle">Rishan Patel</span>.</h1>
-        <p class="lede">I build adaptive Brain–Computer Interfaces using EEG, graph neural networks, and real-time neurotechnology — focused on assistive communication for ALS.</p>
+        <p class="lede">I build adaptive Brain–Computer Interfaces using EEG, graph neural networks, and real-time
+          neurotechnology — focused on assistive communication for ALS.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a class="btn" href="#contact">Get in touch</a>
           <!-- CV button intentionally removed -->
@@ -200,7 +461,8 @@
         <p style="margin-top:10px;color:var(--muted);font-size:14px;">UCL · PhD · IET Prize 21 · IHE Fellow 24/25</p>
       </div>
       <div class="card" style="padding:0;overflow:hidden">
-        <img loading="lazy" src="assets/research_talk.jpg" alt="Rishan giving a research talk" style="display:block;width:100%;height:auto;" />
+        <img loading="lazy" src="assets/research_talk.jpg" alt="Rishan giving a research talk"
+          style="display:block;width:100%;height:auto;" />
       </div>
     </section>
 
@@ -208,11 +470,33 @@
     <section id="about" class="grid">
       <div class="col-12 card">
         <h2>About me</h2>
-        <p>I see translational research as the most meaningful way to bridge academic discovery with tangible human benefit. My PhD work in Brain–Computer Interfaces has revealed both the immense promise and the current limitations of neurotechnology. While academic research often stops at publication, I believe its true value lies in transforming ideas into scalable, accessible solutions that improve patients’ lives. I am particularly interested in developing the skills that enable this transition, learning how to evaluate scientific concepts not only for novelty, but for feasibility, scalability, and market relevance. My long-term goal is to build devices that create adaptive neurotechnologies for medical use, especially for neurodegenerative conditions such as ALS where assistive technologies are urgently needed. I am motivated by the vision of making advanced neural interfaces not a privilege, but a practical tool for restoring independence and communication.</p>
+        <p>I see translational research as the most meaningful way to bridge academic discovery with tangible human
+          benefit. My PhD work in Brain–Computer Interfaces has revealed both the immense promise and the current
+          limitations of neurotechnology. While academic research often stops at publication, I believe its true value
+          lies in transforming ideas into scalable, accessible solutions that improve patients’ lives. I am particularly
+          interested in developing the skills that enable this transition, learning how to evaluate scientific concepts
+          not only for novelty, but for feasibility, scalability, and market relevance. My long-term goal is to build
+          devices that create adaptive neurotechnologies for medical use, especially for neurodegenerative conditions
+          such as ALS where assistive technologies are urgently needed. I am motivated by the vision of making advanced
+          neural interfaces not a privilege, but a practical tool for restoring independence and communication.</p>
 
-        <p>What distinguishes my approach is a blend of technical depth and a strong commitment to real-world translation. I work at the intersection of neuroscience, engineering, and patient care, developing BCI that adapt to individuals over time. Yet my focus extends beyond the lab: I am driven by the broader challenge of ensuring that breakthrough science leads to lasting impact. Alongside my research, I have co-founded initiatives such as the UK BCI Consortium to connect researchers and accelerate national collaboration, and I regularly engage in outreach to democratise access to science for younger students. I view my field not only as research but as a means for systemic change, improving patient access, inspiring the next generation, and demonstrating that cutting-edge neurotechnology can be developed outside elite, resource-heavy environments. Having participated in programmes such as Cambridge EnterpriseTECH, Neuroworks’ What If, and iCURe Engage, I have cultivated an integrated understanding of innovation pipelines outside of research. Combined with my experience designing both algorithms and hardware, exposure to clinical contexts, and my work as an Impact Fellow with the Institute of Healthcare Engineering, I bring a perspective that spans scientific feasibility, usability, regulation, and societal impact. My aim is not just to commercialise technology, but to build sustainable ecosystems where innovation in healthcare can truly thrive.</p>
+        <p>What distinguishes my approach is a blend of technical depth and a strong commitment to real-world
+          translation. I work at the intersection of neuroscience, engineering, and patient care, developing BCI that
+          adapt to individuals over time. Yet my focus extends beyond the lab: I am driven by the broader challenge of
+          ensuring that breakthrough science leads to lasting impact. Alongside my research, I have co-founded
+          initiatives such as the UK BCI Consortium to connect researchers and accelerate national collaboration, and I
+          regularly engage in outreach to democratise access to science for younger students. I view my field not only
+          as research but as a means for systemic change, improving patient access, inspiring the next generation, and
+          demonstrating that cutting-edge neurotechnology can be developed outside elite, resource-heavy environments.
+          Having participated in programmes such as Cambridge EnterpriseTECH, Neuroworks’ What If, and iCURe Engage, I
+          have cultivated an integrated understanding of innovation pipelines outside of research. Combined with my
+          experience designing both algorithms and hardware, exposure to clinical contexts, and my work as an Impact
+          Fellow with the Institute of Healthcare Engineering, I bring a perspective that spans scientific feasibility,
+          usability, regulation, and societal impact. My aim is not just to commercialise technology, but to build
+          sustainable ecosystems where innovation in healthcare can truly thrive.</p>
         <ul class="clean">
-          <li><strong>Notable Skills:</strong> PyTorch, TensorFlow, PyTorch Geometric, MNE, EEGLab, pylsl, Python, MATLAB</li>
+          <li><strong>Notable Skills:</strong> PyTorch, TensorFlow, PyTorch Geometric, MNE, EEGLab, pylsl, Python,
+            MATLAB</li>
         </ul>
       </div>
     </section>
@@ -225,7 +509,10 @@
           <li class="timeline-item">
             <div class="when">Sep 2022 — Sep 2026</div>
             <h3>Doctor of Philosophy, Electronic & Electrical Engineering - University College London</h3>
-            <p>With the UCL Bioelectronics Group and Aspire CREATE, developing non-invasive BCIs capable of recognizing motor intent during functional tasks for ALS patients. Tackling EEG non-stationarity via algorithmic & experimental innovation. Supervised multiple undergraduate and Masters projects. See ORCID for publications.</p>
+            <p>With the UCL Bioelectronics Group and Aspire CREATE, developing non-invasive BCIs capable of recognizing
+              motor intent during functional tasks for ALS patients. Tackling EEG non-stationarity via algorithmic &
+              experimental innovation. Supervised multiple undergraduate and Masters projects. See ORCID for
+              publications.</p>
           </li>
           <li class="timeline-item">
             <div class="when">Oct 2021 — Oct 2022</div>
@@ -242,54 +529,82 @@
         <h2>Experience</h2>
         <ol class="timeline">
           <li class="timeline-item">
+            <div class="when">2024 — Present</div>
+            <h3>BioSpark Company Seeding Fellow</h3>
+            <p>Fellowship program aimed at developing commercial awareness and entrepreneurial skills for life science
+              researchers.</p>
+          </li>
+          <li class="timeline-item">
+            <div class="when">2024</div>
+            <h3>UCL Small Grant Project Host</h3>
+            <p>Awarded £1500 to host a research project helping understand what level of brain analysis (source-template
+              MRI, sensor, source-MRI) will be best for in-home monitoring of network changes in the brain.</p>
+          </li>
+          <li class="timeline-item">
             <div class="when">Aug 2025 — Present</div>
             <h3>UK BCI Consortium - Founding Member</h3>
-            <p>The UK BCI Consortium is an initiative born out of collaboration between research groups at UCL and Essex, aiming to create a network of BCI research across the UK. The consortium hosts events, workshops, collaborative resources, and lab visits to build an interactive network of doctoral and early career BCI researchers nationwide. <a href="https://www.ucl.ac.uk/engineering/news/2025/oct/phd-student-launches-uk-bci-consortium-unite-brain-computer-interface-research" target="_blank" rel="noopener">Read the UCL announcement</a>.</p>
+            <p>The UK BCI Consortium is an initiative born out of collaboration between research groups at UCL and
+              Essex, aiming to create a network of BCI research across the UK. The consortium hosts events, workshops,
+              collaborative resources, and lab visits to build an interactive network of doctoral and early career BCI
+              researchers nationwide. <a
+                href="https://www.ucl.ac.uk/engineering/news/2025/oct/phd-student-launches-uk-bci-consortium-unite-brain-computer-interface-research"
+                target="_blank" rel="noopener">Read the UCL announcement</a>.</p>
           </li>
           <li class="timeline-item">
             <div class="when">Sep 2025 — Present</div>
             <h3>BCI Society - Student & Postdoc Committee</h3>
-            <p>Sitting on the student and postdoc committee for the BCI Society, a global community for BCI research.</p>
+            <p>Sitting on the student and postdoc committee for the BCI Society, a global community for BCI research.
+            </p>
           </li>
           <li class="timeline-item">
             <div class="when">Mar 2025 — Aug 2025</div>
             <h3>Cambridge Neuroworks - What If Programme (University of Cambridge)</h3>
-            <p>Exploring neurotech ideas, refining hypotheses, ecosystem mapping, expert engagement, and entrepreneurial training to develop promising neurotech innovations.</p>
+            <p>Exploring neurotech ideas, refining hypotheses, ecosystem mapping, expert engagement, and entrepreneurial
+              training to develop promising neurotech innovations.</p>
           </li>
           <li class="timeline-item">
             <div class="when">2025</div>
             <h3>Innovate UK - iCure Engage</h3>
-            <p>Part of the iCure Engage program supporting researchers in translating innovations into real-world commercial and societal impact through customer discovery and business validation.</p>
+            <p>Part of the iCure Engage program supporting researchers in translating innovations into real-world
+              commercial and societal impact through customer discovery and business validation.</p>
           </li>
           <li class="timeline-item">
             <div class="when">Oct 2024 — Oct 2025</div>
             <h3>UCL Institute of Healthcare Engineering - Impact Fellowship</h3>
-            <p>Personalized training in co-production, policy, media & science communication; mentorship, peer learning, and external networking. Culminates in managing an impact event. <a href="https://www.ucl.ac.uk/engineering/news/2024/nov/announcing-our-ihe-impact-fellows-202425" target="_blank" rel="noopener">Meet the Impact Fellows</a>.</p>
+            <p>Personalized training in co-production, policy, media & science communication; mentorship, peer learning,
+              and external networking. Culminates in managing an impact event. <a
+                href="https://www.ucl.ac.uk/engineering/news/2024/nov/announcing-our-ihe-impact-fellows-202425"
+                target="_blank" rel="noopener">Meet the Impact Fellows</a>.</p>
           </li>
           <li class="timeline-item">
             <div class="when">2024</div>
             <h3>EnterpriseTECH - Cambridge Judge Business School</h3>
-            <p>Commercialization program for researchers; developing a feasibility report for an early-stage startup.</p>
+            <p>Commercialization program for researchers; developing a feasibility report for an early-stage startup.
+            </p>
           </li>
           <li class="timeline-item">
             <div class="when">Oct 2023 — Present</div>
             <h3>Scholars Club Tutor - The Brilliant Club (Highlands School)</h3>
-            <p>Designed and taught a university-level module for KS4 students to bridge access gaps; module based on current research.</p>
+            <p>Designed and taught a university-level module for KS4 students to bridge access gaps; module based on
+              current research.</p>
           </li>
           <li class="timeline-item">
             <div class="when">Aug 2023</div>
             <h3>The Turing Summer Experience - Alan Turing Institute & The Brilliant Club</h3>
-            <p>Helped teach a session on Natural Language Programming for Year 12 students interested in Data Science & AI.</p>
+            <p>Helped teach a session on Natural Language Programming for Year 12 students interested in Data Science &
+              AI.</p>
           </li>
           <li class="timeline-item">
             <div class="when">Aug 2023</div>
             <h3>Bridging The Future - UCL-led Charity</h3>
-            <p>Delivered a session on BCI research and how AI can help biomedical engineers solve impactful problems.</p>
+            <p>Delivered a session on BCI research and how AI can help biomedical engineers solve impactful problems.
+            </p>
           </li>
           <li class="timeline-item">
             <div class="when">Apr 2023 — Present</div>
             <h3>Ambassador & Project Host - STEM Learning UK</h3>
-            <p>Nuffield Research Placement host—supporting young students to thrive in a university research setting.</p>
+            <p>Nuffield Research Placement host—supporting young students to thrive in a university research setting.
+            </p>
           </li>
           <li class="timeline-item">
             <div class="when">Jul 2021 — Sep 2021</div>
@@ -312,28 +627,44 @@
         <div class="carousel" data-autoplay="true" data-interval="6000">
           <button class="carousel-btn prev">‹</button>
           <div class="carousel-track">
-            <figure class="slide is-active"><img loading="lazy" src="assets/research_talk.jpg" alt="Research talk"><figcaption>Research Talk</figcaption></figure>
+            <figure class="slide is-active"><img loading="lazy" src="assets/research_talk.jpg" alt="Research talk">
+              <figcaption>Research Talk</figcaption>
+            </figure>
 
-            <figure class="slide"><img loading="lazy" src="media/research_talk_2.jpg" alt="Research talk 2"><figcaption>Research Talk 2</figcaption></figure>
+            <figure class="slide"><img loading="lazy" src="media/research_talk_2.jpg" alt="Research talk 2">
+              <figcaption>Research Talk 2</figcaption>
+            </figure>
 
             <figure class="slide">
               <video controls preload="metadata" playsinline>
-                <source src="media/bcivideo.mp4" type="video/mp4">
+                <source src="media/bcivideo.MP4" type="video/mp4">
                 Sorry, your browser can’t play this video.
               </video>
               <figcaption>BCI Demo Video</figcaption>
             </figure>
 
-            <figure class="slide"><img loading="lazy" src="media/et1.jpg" alt="Event 1"><figcaption>Event 1</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/et2.jpg" alt="Event 2"><figcaption>Event 2</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc1.jpg" alt="Talk BCI 1"><figcaption>Talk BCI 1</figcaption></figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc2.jpg" alt="Talk BCI 2"><figcaption>Talk BCI 2</figcaption></figure>
-	    <figure class="slide"><img loading="lazy" src="media/nerimage.jfif" alt="Talk NER"><figcaption>Talk NER</figcaption></figure>
-	    <figure class="slide"><img loading="lazy" src="media/nerimage2.jfif" alt="Talk NER 2"><figcaption>Talk NER 2</figcaption></figure>
+            <figure class="slide"><img loading="lazy" src="media/et1.jpg" alt="Event 1">
+              <figcaption>Event 1</figcaption>
+            </figure>
+            <figure class="slide"><img loading="lazy" src="media/et2.jpg" alt="Event 2">
+              <figcaption>Event 2</figcaption>
+            </figure>
+            <figure class="slide"><img loading="lazy" src="media/tbc1.jpg" alt="Talk BCI 1">
+              <figcaption>Talk BCI 1</figcaption>
+            </figure>
+            <figure class="slide"><img loading="lazy" src="media/tbc2.jpg" alt="Talk BCI 2">
+              <figcaption>Talk BCI 2</figcaption>
+            </figure>
+            <figure class="slide"><img loading="lazy" src="media/nerimage.jfif" alt="Talk NER">
+              <figcaption>Talk NER</figcaption>
+            </figure>
+            <figure class="slide"><img loading="lazy" src="media/nerimage2.jfif" alt="Talk NER 2">
+              <figcaption>Talk NER 2</figcaption>
+            </figure>
 
             <figure class="slide">
               <video controls preload="metadata" playsinline>
-                <source src="media/pa1.mp4" type="video/mp4">
+                <source src="media/pa1.MP4" type="video/mp4">
                 Sorry, your browser can’t play this video.
               </video>
               <figcaption>Project Kobe — 1</figcaption>
@@ -341,7 +672,7 @@
 
             <figure class="slide">
               <video controls preload="metadata" playsinline>
-                <source src="media/pa2.mov" type="video/mov">
+                <source src="media/pa2.mov" type="video/quicktime">
                 Sorry, your browser can’t play this video.
               </video>
               <figcaption>Project Kobe — 2</figcaption>
@@ -357,7 +688,9 @@
     <section id="publications" class="grid" style="margin-top:16px;">
       <div class="col-12 card">
         <h2>Publications & Manuscripts</h2>
-        <ul id="pub-list" class="clean"><li>Loading publications from ORCID…</li></ul>
+        <ul id="pub-list" class="clean">
+          <li>Loading publications from ORCID…</li>
+        </ul>
       </div>
     </section>
 
@@ -366,7 +699,7 @@
       <div class="col-12 card">
         <h2>Talks & Outreach</h2>
         <ul class="clean">
-	  <li>The Centre for Neurorehabilitation at Queen Square Networking Event 2024</li>
+          <li>The Centre for Neurorehabilitation at Queen Square Networking Event 2024</li>
           <li>UK BCI Community — peer-driven meetups, lab exchanges, one-slide talks.</li>
           <li>STEM outreach: Brilliant Club, IET YP Ambassador, Nuffield mentor.</li>
         </ul>
@@ -386,7 +719,8 @@
     </section>
 
     <footer>
-      <p>© <span id="year"></span> Rishan Patel • Built with plain HTML/CSS • <a href="https://github.com/rishannp/rishannp.github.io">Source</a></p>
+      <p>© <span id="year"></span> Rishan Patel • Built with plain HTML/CSS • <a
+          href="https://github.com/rishannp/rishannp.github.io">Source</a></p>
     </footer>
   </main>
 
@@ -395,7 +729,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Theme toggle (saved pref -> OS pref -> dark default)
-    (function initTheme(){
+    (function initTheme() {
       const toggle = document.getElementById('themeToggle');
       const key = 'theme-preference';
       const root = document.documentElement;
@@ -433,7 +767,7 @@
           const doi = ext.find(e => e['external-id-type']?.toLowerCase() === 'doi');
           const url = doi ? 'https://doi.org/' + encodeURIComponent(doi['external-id-value']) : s['url']?.value;
           return { title, year, url };
-        }).filter(Boolean).sort((a,b) => (parseInt(b.year||0) - parseInt(a.year||0)));
+        }).filter(Boolean).sort((a, b) => (parseInt(b.year || 0) - parseInt(a.year || 0)));
         pubList.innerHTML = '';
         for (const it of items) {
           const li = document.createElement('li');
@@ -500,4 +834,5 @@
     document.querySelectorAll('.carousel').forEach(initCarousel);
   </script>
 </body>
+
 </html>
