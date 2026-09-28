@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rishan Patel - Brain-Computer Interface Research</title>
+  <title>Rishan Patel · Founder & CEO, Synaptive</title>
   <meta name="description"
-    content="BCI researcher at UCL. Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
+    content="Rishan Patel, founder and CEO of Synaptive: EEG hardware that reaches the scalp through every hair type. PhD in brain–computer interfaces at UCL." />
   <meta name="author" content="Rishan Patel" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Rishan Patel - Brain-Computer Interface Research" />
+  <meta property="og:title" content="Rishan Patel · Founder & CEO, Synaptive" />
   <meta property="og:description"
-    content="BCI researcher in London (UCL). Graphical models for EEG, adaptive BCIs for ALS, and real-time neurotechnology." />
+    content="Building Synaptive: EEG that works through every hair type. A 100-year problem, solved in two." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rishannp.github.io/" />
-  <meta property="og:image" content="https://rishannp.github.io/assets/og-card.png" />
+  <meta property="og:image" content="https://rishannp.github.io/media/web/portrait.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- JSON-LD -->
@@ -24,977 +24,1388 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Rishan Patel",
-    "jobTitle": "PhD Candidate, Brain-Computer Interfaces",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "University College London"
+    "jobTitle": "Founder & CEO",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Synaptive Ltd",
+      "url": "https://synaptiveltd.co.uk/"
     },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University College London" },
+      { "@type": "CollegeOrUniversity", "name": "Imperial College London" }
+    ],
     "url": "https://rishannp.github.io/",
     "sameAs": [
       "https://www.linkedin.com/in/rishannp/",
-      "https://orcid.org/0009-0006-8848-8574"
+      "https://orcid.org/0009-0006-8848-8574",
+      "https://synaptiveltd.co.uk/"
     ]
   }
   </script>
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <script>
+    // Set theme before paint to avoid a flash
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme-preference');
+        if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) { }
+    })();
+  </script>
 
   <style>
-    /* ---------- THEME VARIABLES (default to dark) ---------- */
+    /* ---------- TOKENS ---------- */
     :root {
-      --bg: #0b0c0f;
-      --fg: #e9eef4;
-      --muted: #aab3c2;
-      --accent: #48CFAD;
-      --accent2: #37BC98;
-      --grey: #e9ecef;
-      --card: #14171c;
-      /* dark surface so light text remains legible */
-      --card-border: #222832;
-      --ring: #37BC98;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --radius: 16px;
-      --maxw: 980px;
+      --paper: #f2eee6;
+      --paper-2: #e8e2d6;
+      --ink: #17140f;
+      --ink-2: #4a443b;
+      --ink-3: #847c70;
+      --rule: rgba(23, 20, 15, .14);
+      --signal: #d9481c;
+      --invert-bg: #17140f;
+      --invert-fg: #f2eee6;
+      --invert-muted: #a39b8e;
+      --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+      --sans: 'Geist', system-ui, -apple-system, sans-serif;
+      --maxw: 1240px;
+      --gutter: clamp(16px, 4vw, 48px);
+      color-scheme: light;
     }
 
-    html[data-theme="light"] {
-      --bg: #f7f9fb;
-      --fg: #11131a;
-      --muted: #5b6577;
-      --accent: #48CFAD;
-      --accent2: #37BC98;
-      --grey: #e9ecef;
-      --card: #ffffff;
-      --card-border: #e8ecf2;
-      --ring: #37BC98;
-      --shadow: 0 10px 30px rgba(10, 30, 90, 0.08);
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --paper: #12110e;
+        --paper-2: #1b1915;
+        --ink: #ede8de;
+        --ink-2: #bdb5a7;
+        --ink-3: #7f7869;
+        --rule: rgba(237, 232, 222, .14);
+        --signal: #ff6a3d;
+        --invert-bg: #ede8de;
+        --invert-fg: #12110e;
+        --invert-muted: #5e584d;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --paper: #12110e;
+      --paper-2: #1b1915;
+      --ink: #ede8de;
+      --ink-2: #bdb5a7;
+      --ink-3: #7f7869;
+      --rule: rgba(237, 232, 222, .14);
+      --signal: #ff6a3d;
+      --invert-bg: #ede8de;
+      --invert-fg: #12110e;
+      --invert-muted: #5e584d;
+      color-scheme: dark;
     }
 
     /* ---------- BASE ---------- */
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
-    html,
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+
     body {
-      height: 100%;
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
     }
 
     a {
-      color: var(--accent);
-      text-decoration: none;
+      color: inherit;
+      text-decoration-color: var(--signal);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--signal);
+    }
+
+    ::selection {
+      background: var(--signal);
+      color: var(--paper);
     }
 
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 24px;
+      padding: 0 var(--gutter);
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .meta {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---------- HEADER ---------- */
+    .top {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(8px);
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-      z-index: 10;
+      z-index: 20;
+      background: color-mix(in oklab, var(--paper) 88%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
     }
 
-    nav a {
-      margin-left: 16px;
-      font-weight: 600;
-      opacity: 0.9;
+    .top .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 16px;
+    }
+
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 24px;
+      text-decoration: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .top nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .top nav a {
+      text-decoration: none;
+      color: var(--ink-2);
+    }
+
+    .top nav a:hover {
+      color: var(--ink);
     }
 
     .toggle {
+      font: inherit;
       cursor: pointer;
-      border: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
-      background: var(--card);
-      color: var(--fg);
-      padding: 8px 10px;
-      border-radius: 12px;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--ink-2);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .toggle:hover {
+      color: var(--ink);
+      border-color: var(--ink-3);
+    }
+
+    .toggle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 760px) {
+      .top nav a:not(.keep) {
+        display: none;
+      }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: clamp(40px, 8vw, 96px) 0 0;
+    }
+
+    .hero-kicker {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--ink-2);
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--signal);
+      flex: none;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .25;
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(76px, 12.5vw, 184px);
+      line-height: .86;
+      letter-spacing: -.03em;
+      margin: 0 0 clamp(24px, 3vw, 40px);
+    }
+
+    .hero h1 em {
+      color: var(--signal);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: end;
+    }
+
+    .hero-lede {
+      font-size: clamp(20px, 2.1vw, 26px);
+      line-height: 1.4;
+      margin: 0;
+      max-width: 30ch;
+    }
+
+    .hero-lede a {
+      text-decoration: underline;
+      text-decoration-color: var(--signal);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 25%, transparent), transparent), var(--card);
-      color: var(--fg);
-      padding: 10px 16px;
-      border-radius: calc(var(--radius) - 4px);
-      border: 1px solid color-mix(in oklab, var(--accent2) 45%, var(--card));
-      box-shadow: var(--shadow);
+      padding: 12px 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      font-size: 15px;
+      transition: background .15s, color .15s;
+    }
+
+    .btn.solid {
+      background: var(--ink);
+      color: var(--paper);
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      background: var(--signal);
+      border-color: var(--signal);
+      color: #fff;
     }
 
-    .hero {
+    .btn .arr {
+      transition: transform .15s;
+    }
+
+    .btn:hover .arr {
+      transform: translateX(3px);
+    }
+
+    .hero-photo {
+      margin: 0;
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 52% 20%;
+      filter: grayscale(.15) contrast(1.02);
+    }
+
+    .hero-photo figcaption {
+      margin-top: 8px;
+      color: var(--ink-3);
+    }
+
+    /* EEG trace */
+    .trace {
+      margin-top: clamp(40px, 6vw, 72px);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .trace canvas {
+      display: block;
+      width: 100%;
+      height: 120px;
+    }
+
+    .trace-label {
+      position: absolute;
+      left: var(--gutter);
+      top: 10px;
+      color: var(--ink-3);
+      pointer-events: none;
+    }
+
+    .trace-label.right {
+      left: auto;
+      right: var(--gutter);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: clamp(64px, 10vw, 128px) 0;
+      scroll-margin-top: 60px;
+    }
+
+    .sec-head {
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+
+    .sec-head .meta {
+      color: var(--ink-3);
+    }
+
+    .sec-head h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 80px);
+      line-height: .95;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+
+    .sec-head h2 em {
+      color: var(--signal);
+    }
+
+
+
+    /* ---------- SYNAPTIVE ---------- */
+    .syn {
+      background: var(--invert-bg);
+      color: var(--invert-fg);
+    }
+
+    .syn .sec-head .meta {
+      color: var(--invert-muted);
+    }
+
+    .syn-statement {
+      font-family: var(--serif);
+      font-size: clamp(48px, 9vw, 140px);
+      line-height: .9;
+      letter-spacing: -.03em;
+      margin: 0 0 clamp(40px, 6vw, 72px);
+    }
+
+    .syn-statement .strike {
+      color: var(--invert-muted);
+    }
+
+    .syn-statement em {
+      color: var(--signal);
+    }
+
+    .syn-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .syn-copy p {
+      margin: 0 0 1.1em;
+      max-width: 56ch;
+      color: color-mix(in oklab, var(--invert-fg) 82%, var(--invert-bg));
+    }
+
+    .syn-copy p:first-child {
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--invert-fg);
+    }
+
+    .facts {
+      list-style: none;
+      margin: 32px 0 0;
+      padding: 0;
+      border-top: 1px solid color-mix(in oklab, var(--invert-fg) 18%, transparent);
+    }
+
+    .facts li {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid color-mix(in oklab, var(--invert-fg) 18%, transparent);
+    }
+
+    .facts .meta {
+      color: var(--invert-muted);
+    }
+
+    .syn-media {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .syn-media figure {
+      margin: 0;
+    }
+
+    .syn-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .syn-media .big {
+      grid-column: 1 / -1;
+      aspect-ratio: 4 / 3;
+    }
+
+    .syn-media .small {
+      aspect-ratio: 3 / 4;
+    }
+
+    .syn-media figcaption {
+      color: var(--invert-muted);
+      margin-top: 6px;
+    }
+
+    .syn .btn {
+      border-color: var(--invert-fg);
+      color: var(--invert-fg);
+    }
+
+    .syn .btn.solid {
+      background: var(--invert-fg);
+      color: var(--invert-bg);
+    }
+
+    .syn .btn:hover {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: #fff;
+    }
+
+    .timeline-strip {
+      display: flex;
       align-items: center;
-      padding: 48px 0;
+      gap: 16px;
+      margin: 0 0 24px;
+      color: var(--invert-muted);
     }
 
-    .hero h1 {
-      font-size: clamp(28px, 4vw, 48px);
-      margin-bottom: 8px;
+    .timeline-strip .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, color-mix(in oklab, var(--invert-fg) 25%, transparent) 0 94%, var(--signal) 94%);
     }
 
-    .hero p.lede {
-      color: var(--muted);
-      margin-bottom: 20px;
+    .timeline-strip .now {
+      color: var(--signal);
+    }
+
+    @media (max-width: 860px) {
+      .syn-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 56px);
+    }
+
+    .about-body p {
+      margin: 0 0 1.1em;
+      color: var(--ink-2);
+    }
+
+    .about-body p.big {
+      font-size: clamp(21px, 2.1vw, 26px);
+      line-height: 1.4;
+      font-weight: 500;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+
+    .tools {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--ink-3);
+    }
+
+    @media (max-width: 860px) {
+      .about-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- WORK LIST ---------- */
+    .rows {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--ink);
+    }
+
+    .rows li {
+      display: grid;
+      grid-template-columns: 200px 1fr 1.1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background .15s;
+    }
+
+    .rows li:hover {
+      background: var(--paper-2);
+    }
+
+    .rows .when {
+      color: var(--ink-3);
+      padding-top: 4px;
+    }
+
+    .rows h3 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .rows .org {
+      color: var(--ink-3);
+      font-size: 15px;
+    }
+
+    .rows p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .rows li.lead h3 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    .rows li.lead .when {
+      color: var(--signal);
+    }
+
+    .subhead {
+      margin: 64px 0 16px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    @media (max-width: 860px) {
+      .rows li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+    }
+
+    .gal-btns {
+      display: flex;
+      gap: 8px;
+      flex: none;
+    }
+
+    .gal-btns button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
       font-size: 18px;
     }
 
-    /* ---------- Thicker squiggly underline ---------- */
-    .squiggle {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
+    .gal-btns button:hover {
+      background: var(--ink);
+      color: var(--paper);
     }
 
-    .squiggle::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 10px;
-      background-repeat: repeat-x;
-      background-size: 28px 10px;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'><path d='M0 5 Q7 0 14 5 T28 5' stroke='%2348CFAD' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-      opacity: 0.95;
+    .gallery {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 var(--gutter) 16px;
+      scroll-padding: 0 var(--gutter);
+      scrollbar-width: thin;
+      scrollbar-color: var(--ink-3) transparent;
+      cursor: grab;
+    }
+
+    .gallery.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+
+    .gallery.dragging * {
       pointer-events: none;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      padding: 20px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform .2s ease, box-shadow .2s ease;
-      color: var(--fg);
+    @media (min-width: 1240px) {
+      .gallery {
+        padding-left: calc((100vw - var(--maxw)) / 2 + var(--gutter));
+        scroll-padding-left: calc((100vw - var(--maxw)) / 2 + var(--gutter));
+      }
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
-    }
-
-    h2 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      position: relative;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      height: 3px;
-      width: 56px;
-      background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent2) 60%, var(--accent)));
-      border-radius: 2px;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: color-mix(in oklab, var(--accent) 15%, var(--card));
-      border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card));
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
+    .gallery figure {
       margin: 0;
+      flex: none;
+      scroll-snap-align: start;
     }
 
-    ul.clean li {
-      padding: 10px 0;
-      border-bottom: 1px dashed color-mix(in oklab, var(--fg) 10%, transparent);
+    .gallery img,
+    .gallery video {
+      height: clamp(240px, 42vw, 440px);
+      width: auto;
+      background: var(--paper-2);
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
-    ul.clean li:last-child {
-      border-bottom: none;
-    }
-
-    footer {
-      margin: 48px 0 16px;
-      color: var(--muted);
+    .gallery figcaption {
+      margin-top: 10px;
       font-size: 14px;
-      text-align: center;
+      color: var(--ink-2);
     }
 
-    /* Subtle scientific grid overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        linear-gradient(transparent 24px, color-mix(in oklab, var(--fg) 5%, transparent) 25px) 0 0/100% 25px,
-        linear-gradient(90deg, transparent 24px, color-mix(in oklab, var(--fg) 5%, transparent) 25px) 0 0/25px 100%;
-      opacity: .08;
-      mix-blend-mode: soft-light;
+    .gallery figcaption .meta {
+      color: var(--ink-3);
+      font-size: 11px;
+      padding-top: 3px;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      body::after {
-        content: "";
-        position: fixed;
-        inset: -50% -50%;
-        pointer-events: none;
-        z-index: 0;
-        background: radial-gradient(60% 60% at 50% 50%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%);
-        filter: blur(60px);
-        animation: drift 18s linear infinite;
-        opacity: .3;
-      }
+    /* ---------- PAPERS ---------- */
+    #pub-list li {
+      grid-template-columns: 200px 1fr;
+    }
 
-      @keyframes drift {
-        to {
-          transform: rotate(360deg);
-        }
+    #pub-list a {
+      text-decoration: none;
+    }
+
+    #pub-list a:hover h3 {
+      color: var(--signal);
+    }
+
+    @media (max-width: 860px) {
+      #pub-list li {
+        grid-template-columns: 1fr;
       }
     }
 
-    header,
-    main,
+    /* ---------- CONTACT ---------- */
+    .contact {
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-big {
+      font-family: var(--serif);
+      font-size: clamp(40px, 8vw, 120px);
+      line-height: 1;
+      letter-spacing: -.02em;
+      text-decoration: none;
+      display: inline-block;
+      word-break: break-word;
+    }
+
+    .contact-big:hover {
+      color: var(--signal);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 32px;
+      margin-top: 32px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+    }
+
+    .contact-links a:hover {
+      border-color: var(--signal);
+    }
+
     footer {
-      position: relative;
-      z-index: 1;
+      padding: 24px 0 40px;
+      color: var(--ink-3);
     }
 
-    /* ---------- Timeline ---------- */
-    .timeline {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 12px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: color-mix(in oklab, var(--fg) 12%, transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 36px;
-      margin-bottom: 14px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
-    }
-
-    .timeline-item .when {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .timeline-item h3 {
-      margin: 0 0 4px;
-      font-size: 16px;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    /* ---------- Carousel ---------- */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .carousel-track {
+    footer .wrap {
       display: flex;
-      gap: 0;
-      scroll-behavior: smooth;
-      transition: transform 0.5s ease;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .carousel .slide {
-      min-width: 100%;
+    footer a {
+      text-decoration: none;
     }
 
-    .carousel img,
-    .carousel video {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      display: block;
+    /* ---------- RESPONSIVE HERO ---------- */
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .carousel figure {
-      position: relative;
-      margin: 0;
-    }
+    /* ---------- REVEAL ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity .7s ease, transform .7s ease;
+      }
 
-    .carousel figcaption {
-      position: absolute;
-      left: 10px;
-      bottom: 10px;
-      background: color-mix(in oklab, var(--bg) 60%, transparent);
-      color: var(--fg);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: color-mix(in oklab, var(--card) 70%, transparent);
-      padding: 8px 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      color: var(--fg);
-    }
-
-    .carousel-btn.prev {
-      left: 10px;
-    }
-
-    .carousel-btn.next {
-      right: 10px;
-    }
-
-    .carousel-dots {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      margin-top: 8px;
-    }
-
-    .carousel-dots button {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: 1px solid color-mix(in oklab, var(--accent2) 50%, var(--card));
-      background: color-mix(in oklab, var(--accent) 10%, var(--card));
-      cursor: pointer;
-    }
-
-    .carousel-dots button.active {
-      background: var(--accent);
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .carousel-track {
-        transition: none !important;
+      .dot {
+        animation: none;
       }
-    }
 
-    #network-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
 
 <body>
-  <canvas id="network-bg"></canvas>
-  <header class="wrap">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <span class="pill">BCI · EEG · Graph ML · Deep Learning · Healthcare Engineering</span>
+  <header class="top">
+    <div class="wrap">
+      <a class="wordmark" href="#">Rishan Patel</a>
+      <nav>
+        <a class="keep" href="#synaptive">Synaptive</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#media">Media</a>
+        <a href="#papers">Papers</a>
+        <a class="keep" href="#contact">Contact</a>
+        <button id="themeToggle" class="toggle" aria-label="Switch colour theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor" />
+          </svg>
+        </button>
+      </nav>
     </div>
-    <nav>
-      <a href="#about">About me</a>
-      <a href="#experience">Experience</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
-      <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌓</button>
-    </nav>
   </header>
 
-  <main class="wrap">
+  <main>
     <!-- HERO -->
-    <section class="hero">
-      <div>
-        <h1>Hi, I'm <span class="squiggle">Rishan Patel</span>.</h1>
-        <p class="lede">I build adaptive Brain–Computer Interfaces using EEG, graph neural networks, and real-time
-          neurotechnology — focused on assistive communication for ALS.</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn" href="#contact">Get in touch</a>
-          <!-- CV button intentionally removed -->
+    <div class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-kicker meta"><span class="dot"></span> Founder & CEO, Synaptive · London</div>
+            <h1>Rishan<br>Patel<em>.</em></h1>
+            <p class="hero-lede">I run <a href="https://synaptiveltd.co.uk/" target="_blank" rel="noopener">Synaptive</a>,
+              where we build EEG hardware that works through every hair type. Before that, and alongside it, a PhD in
+              brain–computer interfaces at UCL.</p>
+            <div class="hero-actions">
+              <a class="btn solid" href="#synaptive">What we're building <span class="arr">→</span></a>
+              <a class="btn" href="#contact">Get in touch</a>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <img src="media/web/portrait.jpg" alt="Rishan speaking to an audience" width="1600" height="1067" />
+                      </figure>
         </div>
-        <p style="margin-top:10px;color:var(--muted);font-size:14px;">UCL · PhD · IET Prize 21 · IHE Fellow 24/25</p>
       </div>
-      <div class="card" style="padding:0;overflow:hidden">
-        <img loading="lazy" src="assets/research_talk.jpg" alt="Rishan giving a research talk"
-          style="display:block;width:100%;height:auto;" />
+
+      <div class="trace" aria-hidden="true">
+        <canvas id="eeg"></canvas>
+        <span class="trace-label meta">Cz · 256 Hz</span>
+        <span class="trace-label right meta">50 µV</span>
+      </div>
+    </div>
+
+    <!-- SYNAPTIVE -->
+    <section id="synaptive" class="syn">
+      <div class="wrap">
+        <div class="timeline-strip meta reveal">
+          <span>1924</span><span class="line"></span><span class="now">Synaptive</span>
+        </div>
+        <p class="syn-statement reveal">A 100-year problem.<br><em>We solved it in two.</em></p>
+
+        <div class="syn-grid">
+          <div class="syn-copy reveal">
+            <p>EEG electrodes work much as they did in the 1920s. They still struggle to reach the scalp through thick,
+              curly or afro-textured hair, so people get turned away from clinics and quietly left out of research.</p>
+            <p>In one review, five of eighty-one EEG papers included any Black participants. I kept seeing it happen in
+              my own experiments, and so did my co-founders, Peter Bryan and Merlin Angel Kelly.</p>
+            <p>Synaptive is the ethical healthcare company we started to fix it. Our first product, Syn-R1, is a
+              passive, drop-in electrode that reaches the scalp first time, on every head. If that's why you're on
+              this page, I'd like to hear from you.</p>
+
+            <ul class="facts">
+              <li><span class="meta">Product</span><span>Syn-R1, a passive EEG electrode</span></li>
+              <li><span class="meta">IP</span><span>Patent pending, GB 2615593.7</span></li>
+              <li><span class="meta">Research</span><span>Paper accepted at the Graz BCI Conference</span></li>
+              <li><span class="meta">Recognition</span><span>UCL Hatchery Social Impact Startup of the Year 2026</span>
+              </li>
+            </ul>
+
+            <div class="hero-actions">
+              <a class="btn solid" href="https://synaptiveltd.co.uk/" target="_blank" rel="noopener">synaptiveltd.co.uk
+                <span class="arr">↗</span></a>
+              <a class="btn" href="https://synaptiveltd.co.uk/evidence.html" target="_blank" rel="noopener">The
+                evidence</a>
+            </div>
+          </div>
+
+          <div class="syn-media reveal">
+            <figure class="big">
+              <img src="media/web/syn-macro.jpg" width="1600" height="1600" alt="Close-up of the Syn-R1 electrode's spring tip" loading="lazy" />
+            </figure>
+            <figure class="small">
+              <img src="media/web/syn-hair.jpg" width="750" height="1000" alt="Syn-R1 electrodes placed in afro-textured hair" loading="lazy" />
+            </figure>
+            <figure class="small">
+              <img src="media/web/syn-terracotta.jpg" width="1120" height="1400" alt="Syn-R1 electrode on a terracotta background"
+                loading="lazy" />
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="grid">
-      <div class="col-12 card">
-        <h2>About me</h2>
-        <p>I see translational research as the most meaningful way to bridge academic discovery with tangible human
-          benefit. My PhD work in Brain–Computer Interfaces has revealed both the immense promise and the current
-          limitations of neurotechnology. While academic research often stops at publication, I believe its true value
-          lies in transforming ideas into scalable, accessible solutions that improve patients’ lives. I am particularly
-          interested in developing the skills that enable this transition, learning how to evaluate scientific concepts
-          not only for novelty, but for feasibility, scalability, and market relevance. My long-term goal is to build
-          devices that create adaptive neurotechnologies for medical use, especially for neurodegenerative conditions
-          such as ALS where assistive technologies are urgently needed. I am motivated by the vision of making advanced
-          neural interfaces not a privilege, but a practical tool for restoring independence and communication.</p>
-
-        <p>What distinguishes my approach is a blend of technical depth and a strong commitment to real-world
-          translation. I work at the intersection of neuroscience, engineering, and patient care, developing BCI that
-          adapt to individuals over time. Yet my focus extends beyond the lab: I am driven by the broader challenge of
-          ensuring that breakthrough science leads to lasting impact. Alongside my research, I have co-founded
-          initiatives such as the UK BCI Consortium to connect researchers and accelerate national collaboration, and I
-          regularly engage in outreach to democratise access to science for younger students. I view my field not only
-          as research but as a means for systemic change, improving patient access, inspiring the next generation, and
-          demonstrating that cutting-edge neurotechnology can be developed outside elite, resource-heavy environments.
-          Having participated in programmes such as Cambridge EnterpriseTECH, Neuroworks’ What If, and iCURe Engage, I
-          have cultivated an integrated understanding of innovation pipelines outside of research. Combined with my
-          experience designing both algorithms and hardware, exposure to clinical contexts, and my work as an Impact
-          Fellow with the Institute of Healthcare Engineering, I bring a perspective that spans scientific feasibility,
-          usability, regulation, and societal impact. My aim is not just to commercialise technology, but to build
-          sustainable ecosystems where innovation in healthcare can truly thrive.</p>
-        <ul class="clean">
-          <li><strong>Notable Skills:</strong> PyTorch, TensorFlow, PyTorch Geometric, MNE, EEGLab, pylsl, Python,
-            MATLAB</li>
-        </ul>
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Research is only useful<br>if it <em>leaves the lab.</em></h2>
+        </div>
+        <div class="about-body reveal">
+          <div>
+            <p class="big">I did my PhD in UCL's Bioelectronics Group, building non-invasive BCIs that read motor intent
+              in people with ALS.</p>
+            <p>Most of that work was about one stubborn problem: EEG signals drift from one day to the next, so a
+              system that works on Monday falls over by Friday. I used graph neural networks and adaptive models to
+              make BCIs that keep up with the person using them.</p>
+          </div>
+          <div>
+            <p>It was good science, and a lot of it stayed in papers. So I spent the next few years learning how
+              research turns into something people can buy and use: Cambridge EnterpriseTECH, Neuroworks' What If,
+              iCURe Engage, a Bio-Spark fellowship, and a year as an Impact Fellow at UCL's Institute of Healthcare
+              Engineering. Synaptive came out of that.</p>
+            <p>I also co-founded the UK BCI Consortium, sit on the BCI Society's student and postdoc committee, and
+              teach school students through the Brilliant Club and STEM Learning.</p>
+            <p class="tools">Tools I use most: PyTorch, PyTorch Geometric, TensorFlow, MNE, EEGLAB, pylsl, Python and MATLAB.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Education</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="when">Sep 2022 — Sep 2026</div>
-            <h3>Doctor of Philosophy, Electronic & Electrical Engineering - University College London</h3>
-            <p>With the UCL Bioelectronics Group and Aspire CREATE, developing non-invasive BCIs capable of recognizing
-              motor intent during functional tasks for ALS patients. Tackling EEG non-stationarity via algorithmic &
-              experimental innovation. Supervised multiple undergraduate and Masters projects. See ORCID for
-              publications.</p>
+    <!-- WORK -->
+    <section id="work" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>What I've been doing</h2>
+        </div>
+
+        <ol class="rows reveal">
+          <li class="lead">
+            <span class="when meta">2025–now</span>
+            <div>
+              <h3>Founder & CEO</h3>
+              <div class="org"><a href="https://synaptiveltd.co.uk/" target="_blank" rel="noopener">Synaptive Ltd</a>
+              </div>
+            </div>
+            <p>Building Syn-R1, EEG hardware that works through every hair type, with Peter Bryan (CTO) and Merlin
+              Angel Kelly (CSO).</p>
           </li>
-          <li class="timeline-item">
-            <div class="when">Oct 2021 — Oct 2022</div>
-            <h3>Masters, Biomedical Engineering - Imperial College London</h3>
-            <p>Grade: 65.38%.</p>
+          <li>
+            <span class="when meta">2025–2026</span>
+            <div>
+              <h3>Bio-Spark Company Seeding Fellow</h3>
+              <div class="org">University of Cambridge</div>
+            </div>
+            <p>Fellowship backing researchers who are turning their work into companies.</p>
+          </li>
+          <li>
+            <span class="when meta">2026</span>
+            <div>
+              <h3>UCL Small Grant, project host</h3>
+              <div class="org">University College London</div>
+            </div>
+            <p>£1,500 to test which level of brain analysis (sensor, template-MRI source or MRI source) suits in-home
+              monitoring of network changes.</p>
+          </li>
+          <li>
+            <span class="when meta">2025–now</span>
+            <div>
+              <h3>Founding member</h3>
+              <div class="org">UK BCI Consortium</div>
+            </div>
+            <p>A national network of doctoral and early-career BCI researchers, started between UCL and Essex. Events,
+              lab visits, shared resources. <a
+                href="https://www.ucl.ac.uk/engineering/news/2025/oct/phd-student-launches-uk-bci-consortium-unite-brain-computer-interface-research"
+                target="_blank" rel="noopener">UCL announcement</a> · <a
+                href="https://www.linkedin.com/company/uk-bci-consortium/" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+          </li>
+          <li>
+            <span class="when meta">2025–now</span>
+            <div>
+              <h3>Student & Postdoc Committee</h3>
+              <div class="org">BCI Society</div>
+            </div>
+            <p>Representing early-career researchers in the global BCI community.</p>
+          </li>
+          <li>
+            <span class="when meta">2024–2025</span>
+            <div>
+              <h3>Impact Fellow</h3>
+              <div class="org">UCL Institute of Healthcare Engineering</div>
+            </div>
+            <p>Training in co-production, policy, media and science communication, ending with running an impact
+              event. <a href="https://www.ucl.ac.uk/engineering/news/2024/nov/announcing-our-ihe-impact-fellows-202425"
+                target="_blank" rel="noopener">Meet the fellows</a></p>
+          </li>
+          <li>
+            <span class="when meta">2025</span>
+            <div>
+              <h3>What If Programme</h3>
+              <div class="org">Cambridge Neuroworks</div>
+            </div>
+            <p>Testing neurotech ideas against experts and the market before building anything.</p>
+          </li>
+          <li>
+            <span class="when meta">2025</span>
+            <div>
+              <h3>iCURe Engage</h3>
+              <div class="org">Innovate UK</div>
+            </div>
+            <p>Customer discovery and business validation for research-led innovations.</p>
+          </li>
+          <li>
+            <span class="when meta">2024</span>
+            <div>
+              <h3>EnterpriseTECH</h3>
+              <div class="org">Cambridge Judge Business School</div>
+            </div>
+            <p>Commercialisation programme; wrote a feasibility report for an early-stage startup.</p>
+          </li>
+          <li>
+            <span class="when meta">2021</span>
+            <div>
+              <h3>Summer intern</h3>
+              <div class="org">PA Consulting, Global Innovation & Technology Centre</div>
+            </div>
+            <p>Ten weeks building a VR-controlled bomb disposal robot.</p>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Experience</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="when">2025 — 2026</div>
-            <h3>BioSpark Company Seeding Fellow - University of Cambridge</h3>
-            <p>Selected as a Biospark Company Seeding Fellow for 25/26 to help support our vision for commercialising
-              research.</p>
+        <div class="subhead meta">Education</div>
+        <ol class="rows reveal">
+          <li>
+            <span class="when meta">2022–2026</span>
+            <div>
+              <h3>PhD, Electronic & Electrical Engineering</h3>
+              <div class="org">University College London</div>
+            </div>
+            <p>UCL Bioelectronics Group and Aspire CREATE. Non-invasive BCIs for motor intent in ALS, and fixing EEG
+              non-stationarity. Supervised several undergraduate and Master's projects.</p>
           </li>
-          <li class="timeline-item">
-            <div class="when">2026</div>
-            <h3>UCL Small Grant Project Host</h3>
-            <p>Awarded £1500 to host a research project helping understand what level of brain analysis (source-template
-              MRI, sensor, source-MRI) will be best for in-home monitoring of network changes in the brain.</p>
+          <li>
+            <span class="when meta">2021–2022</span>
+            <div>
+              <h3>MSc, Biomedical Engineering</h3>
+              <div class="org">Imperial College London</div>
+            </div>
+            <p></p>
           </li>
-          <li class="timeline-item">
-            <div class="when">Aug 2025 — Present</div>
-            <h3>UK BCI Consortium - Founding Member</h3>
-            <p>The UK BCI Consortium is an initiative born out of collaboration between research groups at UCL and
-              Essex, aiming to create a network of BCI research across the UK. The consortium hosts events, workshops,
-              collaborative resources, and lab visits to build an interactive network of doctoral and early career BCI
-              researchers nationwide. <a
-                href="https://www.ucl.ac.uk/engineering/news/2025/oct/phd-student-launches-uk-bci-consortium-unite-brain-computer-interface-research"
-                target="_blank" rel="noopener">Read the UCL announcement</a> or visit our <a
-                href="https://www.linkedin.com/company/uk-bci-consortium/" target="_blank" rel="noopener">LinkedIn
-                page</a>.</p>
+        </ol>
+
+        <div class="subhead meta">Teaching & outreach</div>
+        <ol class="rows reveal">
+          <li>
+            <span class="when meta">2023–now</span>
+            <div>
+              <h3>Scholars Club tutor</h3>
+              <div class="org">The Brilliant Club · Highlands School</div>
+            </div>
+            <p>Designed and taught a university-level module, based on current research, for KS4 students.</p>
           </li>
-          <li class="timeline-item">
-            <div class="when">Sep 2025 — Present</div>
-            <h3>BCI Society - Student & Postdoc Committee</h3>
-            <p>Sitting on the student and postdoc committee for the BCI Society, a global community for BCI research.
-            </p>
+          <li>
+            <span class="when meta">2023–now</span>
+            <div>
+              <h3>Ambassador & project host</h3>
+              <div class="org">STEM Learning UK</div>
+            </div>
+            <p>Hosting Nuffield Research Placement students in a university lab.</p>
           </li>
-          <li class="timeline-item">
-            <div class="when">Mar 2025 — Aug 2025</div>
-            <h3>Cambridge Neuroworks - What If Programme (University of Cambridge)</h3>
-            <p>Exploring neurotech ideas, refining hypotheses, ecosystem mapping, expert engagement, and entrepreneurial
-              training to develop promising neurotech innovations.</p>
+          <li>
+            <span class="when meta">2023</span>
+            <div>
+              <h3>Turing Summer Experience · Bridging the Future</h3>
+              <div class="org">Alan Turing Institute · UCL-led charity</div>
+            </div>
+            <p>Sessions on natural language processing, BCIs, and how AI helps biomedical engineers.</p>
           </li>
-          <li class="timeline-item">
-            <div class="when">2025</div>
-            <h3>Innovate UK - iCure Engage</h3>
-            <p>Part of the iCure Engage program supporting researchers in translating innovations into real-world
-              commercial and societal impact through customer discovery and business validation.</p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Oct 2024 — Oct 2025</div>
-            <h3>UCL Institute of Healthcare Engineering - Impact Fellowship</h3>
-            <p>Personalized training in co-production, policy, media & science communication; mentorship, peer learning,
-              and external networking. Culminates in managing an impact event. <a
-                href="https://www.ucl.ac.uk/engineering/news/2024/nov/announcing-our-ihe-impact-fellows-202425"
-                target="_blank" rel="noopener">Meet the Impact Fellows</a>.</p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">2024</div>
-            <h3>EnterpriseTECH - Cambridge Judge Business School</h3>
-            <p>Commercialization program for researchers; developing a feasibility report for an early-stage startup.
-            </p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Oct 2023 — Present</div>
-            <h3>Scholars Club Tutor - The Brilliant Club (Highlands School)</h3>
-            <p>Designed and taught a university-level module for KS4 students to bridge access gaps; module based on
-              current research.</p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Aug 2023</div>
-            <h3>The Turing Summer Experience - Alan Turing Institute & The Brilliant Club</h3>
-            <p>Helped teach a session on Natural Language Programming for Year 12 students interested in Data Science &
-              AI.</p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Aug 2023</div>
-            <h3>Bridging The Future - UCL-led Charity</h3>
-            <p>Delivered a session on BCI research and how AI can help biomedical engineers solve impactful problems.
-            </p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Apr 2023 — Present</div>
-            <h3>Ambassador & Project Host - STEM Learning UK</h3>
-            <p>Nuffield Research Placement host—supporting young students to thrive in a university research setting.
-            </p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Jul 2021 — Sep 2021</div>
-            <h3>PA Consulting - Summer Internship (Global Innovation & Technology Centre, Cambridge)</h3>
-            <p>10-week internship; developed a VR bomb disposal robot.</p>
-          </li>
-          <li class="timeline-item">
-            <div class="when">Aug 2019 — Present</div>
-            <h3>IET - Young Professional Ambassador</h3>
-            <p>Hosting and judging events like PresentIn10 and other IET activities.</p>
+          <li>
+            <span class="when meta">2019–now</span>
+            <div>
+              <h3>Young Professional Ambassador</h3>
+              <div class="org">IET</div>
+            </div>
+            <p>Hosting and judging events like PresentIn10. IET Prize, 2021.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- MEDIA -->
-    <section id="media" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Media</h2>
-        <div class="carousel" data-autoplay="true" data-interval="6000">
-          <button class="carousel-btn prev">‹</button>
-          <div class="carousel-track">
-            <figure class="slide is-active"><img loading="lazy" src="assets/research_talk.jpg" alt="Research talk">
-              <figcaption>Research Talk</figcaption>
-            </figure>
-
-            <figure class="slide"><img loading="lazy" src="media/research_talk_2.jpg" alt="Research talk 2">
-              <figcaption>Research Talk 2</figcaption>
-            </figure>
-
-            <figure class="slide">
-              <video controls preload="metadata" playsinline>
-                <source src="media/bcivideo.MP4" type="video/mp4">
-                Sorry, your browser can’t play this video.
-              </video>
-              <figcaption>BCI Demo Video</figcaption>
-            </figure>
-
-            <figure class="slide"><img loading="lazy" src="media/et1.jpg" alt="Event 1">
-              <figcaption>Event 1</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/et2.jpg" alt="Event 2">
-              <figcaption>Event 2</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc1.jpg" alt="Talk BCI 1">
-              <figcaption>Talk BCI 1</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/tbc2.jpg" alt="Talk BCI 2">
-              <figcaption>Talk BCI 2</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/nerimage.jfif" alt="Talk NER">
-              <figcaption>Talk NER</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/nerimage2.jfif" alt="Talk NER 2">
-              <figcaption>Talk NER 2</figcaption>
-            </figure>
-
-            <figure class="slide"><img loading="lazy" src="media/highlandstalk1.jpeg" alt="Highlands Talk 1">
-              <figcaption>Highlands Talk 1</figcaption>
-            </figure>
-            <figure class="slide"><img loading="lazy" src="media/highlandstalk2.jpeg" alt="Highlands Talk 2">
-              <figcaption>Highlands Talk 2</figcaption>
-            </figure>
-
-            <figure class="slide">
-              <video controls preload="metadata" playsinline>
-                <source src="media/pa1.MP4" type="video/mp4">
-                Sorry, your browser can’t play this video.
-              </video>
-              <figcaption>Project Kobe — 1</figcaption>
-            </figure>
-
-            <figure class="slide">
-              <video controls preload="metadata" playsinline>
-                <source src="media/pa2.mov" type="video/quicktime">
-                Sorry, your browser can’t play this video.
-              </video>
-              <figcaption>Project Kobe — 2</figcaption>
-            </figure>
+    <section id="media" style="padding-top:0">
+      <div class="wrap">
+        <div class="gallery-head sec-head">
+          <div>
+            <h2>Out and about</h2>
           </div>
-          <button class="carousel-btn next">›</button>
-          <div class="carousel-dots"></div>
+          <div class="gal-btns">
+            <button type="button" data-dir="-1" aria-label="Previous">←</button>
+            <button type="button" data-dir="1" aria-label="Next">→</button>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Publications & Manuscripts</h2>
-        <ul id="pub-list" class="clean">
-          <li>Loading publications from ORCID…</li>
-        </ul>
+      <div class="gallery" id="gallery">
+        <figure><img src="media/web/research-talk.jpg" width="1400" height="934" decoding="async" alt="Rishan giving a research talk" />
+          <figcaption>Research talk</figcaption>
+        </figure>
+        <figure><img src="media/web/bci-demo-1.jpg" width="1400" height="936" decoding="async" alt="Live BCI demo with an EEG cap" />
+          <figcaption>Live BCI demo</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" playsinline>
+            <source src="media/bcivideo.MP4" type="video/mp4">
+          </video>
+          <figcaption>BCI in action</figcaption>
+        </figure>
+        <figure><img src="media/web/bci-demo-2.jpg" width="1400" height="936" decoding="async" alt="EEG cap on a mannequin head at a demo" />
+          <figcaption>Kit on show</figcaption>
+        </figure>
+        <figure><img src="media/web/bci-demo-3.jpg" width="1400" height="936" decoding="async" alt="Running a BCI demo for visitors" />
+          <figcaption>Demo day</figcaption>
+        </figure>
+        <figure><img src="media/web/biospark-cohort.jpg" width="1400" height="934" decoding="async" alt="The Bio-Spark fellowship cohort in Cambridge"
+            />
+          <figcaption>Bio-Spark cohort, Cambridge</figcaption>
+        </figure>
+        <figure><img src="media/web/biospark.jpg" width="1400" height="935" decoding="async" alt="Rishan in the audience at a Bio-Spark event" />
+          <figcaption>Bio-Spark, Cambridge</figcaption>
+        </figure>
+        <figure><img src="media/web/et2.jpg" width="1400" height="934" decoding="async" alt="Pitching at EnterpriseTECH" />
+          <figcaption>Pitching at EnterpriseTECH</figcaption>
+        </figure>
+        <figure><img src="media/web/et1.jpg" width="1400" height="934" decoding="async" alt="EnterpriseTECH team" />
+          <figcaption>EnterpriseTECH team</figcaption>
+        </figure>
+        <figure><img src="media/web/ner-poster.jpg" width="1400" height="1050" decoding="async" alt="Presenting a poster at IEEE NER" />
+          <figcaption>Poster, IEEE NER 2025, San Diego</figcaption>
+        </figure>
+        <figure><img src="media/web/ner-collage.jpg" width="1400" height="788" decoding="async" alt="Collage from IEEE NER 2025 in San Diego" />
+          <figcaption>IEEE NER 2025, San Diego</figcaption>
+        </figure>
+        <figure><img src="media/web/panel.jpg" width="1400" height="933" decoding="async" alt="On a panel discussion" />
+          <figcaption>Panel</figcaption>
+        </figure>
+        <figure><img src="media/web/research-talk-2.jpg" width="1400" height="934" decoding="async" alt="Talk in a lecture theatre" />
+          <figcaption>Lecture theatre talk</figcaption>
+        </figure>
+        <figure><img src="media/web/tbc1.jpg" width="1280" height="960" decoding="async" alt="Teaching a classroom of school students" />
+          <figcaption>Brilliant Club teaching</figcaption>
+        </figure>
+        <figure><img src="media/web/tbc2.jpg" width="1280" height="960" decoding="async" alt="Presenting to school students" />
+          <figcaption>Brilliant Club teaching</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" playsinline>
+            <source src="media/pa1.MP4" type="video/mp4">
+          </video>
+          <figcaption>Project Kobe, PA Consulting</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" playsinline>
+            <source src="media/pa2.mov" type="video/mp4">
+          </video>
+          <figcaption>Project Kobe, PA Consulting</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- TALKS -->
-    <section id="talks" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Talks & Outreach</h2>
-        <ul class="clean">
-          <li>The Centre for Neurorehabilitation at Queen Square Networking Event 2024</li>
-          <li>UK BCI Community — peer-driven meetups, lab exchanges, one-slide talks.</li>
-          <li>STEM outreach: Brilliant Club, IET YP Ambassador, Nuffield mentor.</li>
-        </ul>
+    <!-- PAPERS -->
+    <section id="papers" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Publications</h2>
+        </div>
+        <ol id="pub-list" class="rows">
+          <li><span class="when meta">…</span>
+            <div>
+              <h3>Loading from ORCID</h3>
+            </div>
+          </li>
+        </ol>
+        <p class="meta" style="color:var(--ink-3);margin-top:16px">Pulled live from <a
+            href="https://orcid.org/0009-0006-8848-8574" target="_blank" rel="noopener">ORCID</a></p>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="grid" style="margin-top:16px;">
-      <div class="col-12 card">
-        <h2>Contact</h2>
-        <p style="font-size:16px; color:var(--muted); line-height:1.8;">
-          📧 <a href="mailto:uceerjp@ucl.ac.uk">uceerjp@ucl.ac.uk</a><br>
-          🔗 <a href="https://www.linkedin.com/in/rishannp/" target="_blank" rel="noopener">linkedin.com/in/rishannp</a>
-        </p>
-        <!-- CV line removed -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <p style="color:var(--ink-2);margin:0 0 16px;font-size:20px">Investors, clinicians, researchers, or just
+          curious. Say hello.</p>
+        <a class="contact-big" href="mailto:uceerjp@ucl.ac.uk">uceerjp@ucl.ac.uk</a>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/rishannp/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://synaptiveltd.co.uk/contact.html" target="_blank" rel="noopener">Synaptive ↗</a>
+          <a href="https://orcid.org/0009-0006-8848-8574" target="_blank" rel="noopener">ORCID ↗</a>
+        </div>
       </div>
     </section>
-
-    <footer>
-      <p>© <span id="year"></span> Rishan Patel • Built with plain HTML/CSS • <a
-          href="https://github.com/rishannp/rishannp.github.io">Source</a></p>
-    </footer>
   </main>
 
+  <footer>
+    <div class="wrap meta">
+      <span>© <span id="year"></span> Rishan Patel</span>
+      <a href="https://github.com/rishannp/rishannp.github.io">Source ↗</a>
+    </div>
+  </footer>
+
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle (saved pref -> OS pref -> dark default)
-    (function initTheme() {
-      const toggle = document.getElementById('themeToggle');
-      const key = 'theme-preference';
+    // Theme toggle (saved pref -> OS pref)
+    (function () {
       const root = document.documentElement;
-      const saved = localStorage.getItem(key);
-      if (saved === 'light' || saved === 'dark') {
-        root.setAttribute('data-theme', saved);
-      } else {
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
-      }
-      toggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      const key = 'theme-preference';
+      const isDark = () => root.getAttribute('data-theme')
+        ? root.getAttribute('data-theme') === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const next = isDark() ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
-        localStorage.setItem(key, next);
+        try { localStorage.setItem(key, next); } catch (e) { }
+        window.dispatchEvent(new Event('themechange'));
       });
     })();
 
-    // ORCID fetch
-    const ORCID_ID = '0009-0006-8848-8574';
-    const pubList = document.getElementById('pub-list');
-    async function loadORCIDWorks(orcid) {
-      if (!pubList) return;
-      try {
-        const res = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, { headers: { 'Accept': 'application/json' } });
-        if (!res.ok) throw new Error('ORCID fetch failed');
-        const data = await res.json();
-        const group = data.group || [];
-        if (!group.length) { pubList.innerHTML = '<li>No publications found on ORCID.</li>'; return; }
-        const items = group.map(g => {
-          const s = g['work-summary']?.[0];
-          if (!s) return null;
-          const title = s.title?.title?.value || 'Untitled';
-          const year = s['publication-date']?.year?.value || '';
-          const ext = s['external-ids']?.['external-id'] || [];
-          const doi = ext.find(e => e['external-id-type']?.toLowerCase() === 'doi');
-          const url = doi ? 'https://doi.org/' + encodeURIComponent(doi['external-id-value']) : s['url']?.value;
-          return { title, year, url };
-        }).filter(Boolean).sort((a, b) => (parseInt(b.year || 0) - parseInt(a.year || 0)));
-        pubList.innerHTML = '';
-        for (const it of items) {
-          const li = document.createElement('li');
-          li.innerHTML = `<strong>${it.year || ''}</strong> ${it.year ? '— ' : ''}${it.url ? `<a href='${it.url}'>${it.title}</a>` : it.title}`;
-          pubList.appendChild(li);
-        }
-      } catch (err) { pubList.innerHTML = `<li>Could not load ORCID data (${err.message})</li>`; }
-    }
-    loadORCIDWorks(ORCID_ID);
+    // Reveal on scroll
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }), { rootMargin: '0px 0px -10% 0px' });
+      els.forEach(e => io.observe(e));
+    })();
 
-    // Carousel with autoplay; pauses on hover/focus and while a video plays
-    function initCarousel(rootEl) {
-      const track = rootEl.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const btnPrev = rootEl.querySelector('.prev');
-      const btnNext = rootEl.querySelector('.next');
-      const dots = rootEl.querySelector('.carousel-dots');
-      let idx = 0;
-
-      function go(i) {
-        idx = (i + slides.length) % slides.length;
-        track.style.transform = `translateX(${-idx * 100}%)`;
-        dots.querySelectorAll('button').forEach((d, j) => d.classList.toggle('active', j === idx));
-      }
-
-      // Build dots once
-      slides.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.addEventListener('click', () => { go(i); restart(); });
-        dots.appendChild(b);
-      });
-
-      btnPrev?.addEventListener('click', () => { go(idx - 1); restart(); });
-      btnNext?.addEventListener('click', () => { go(idx + 1); restart(); });
-
-      // Autoplay (respect reduced motion)
-      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const enabled = (rootEl.getAttribute('data-autoplay') || 'true') !== 'false' && !reduceMotion;
-      const interval = parseInt(rootEl.getAttribute('data-interval') || '6000', 10);
-      let timer = null;
-      function start() { if (!enabled) return; stop(); timer = setInterval(() => go(idx + 1), interval); }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function restart() { stop(); start(); }
-
-      // Pause on hover/focus
-      rootEl.addEventListener('mouseenter', stop);
-      rootEl.addEventListener('mouseleave', start);
-      rootEl.addEventListener('focusin', stop);
-      rootEl.addEventListener('focusout', start);
-      document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-
-      // Pause while a video is playing; resume when paused/ended
-      slides.forEach(slide => {
-        const vid = slide.querySelector('video');
-        if (!vid) return;
-        vid.addEventListener('play', stop);
-        vid.addEventListener('pause', start);
-        vid.addEventListener('ended', start);
-      });
-
-      go(0);
-      start();
-    }
-    document.querySelectorAll('.carousel').forEach(initCarousel);
-
-    // Network Background Effect
-    (function initNetworkBg() {
-      const canvas = document.getElementById('network-bg');
-      if (!canvas) return;
+    // EEG trace: a sweeping monitor-style line
+    (function () {
+      const canvas = document.getElementById('eeg');
       const ctx = canvas.getContext('2d');
-      let width, height;
-      let particles = [];
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let w, h, dpr, buf, x = 0, t = 0, color, faint;
 
-      // Configuration
-      const config = {
-        count: 80,            // Number of particles
-        radius: 2,           // Particle radius
-        dist: 150,           // Max distance for connection
-        speed: 0.5,          // Base speed
-        mouseDist: 200       // Mouse interaction radius
-      };
-
-      // Mouse state
-      const mouse = { x: -1000, y: -1000 };
-      window.addEventListener('mousemove', e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-
-      // Colors - updated dynamically
-      let colorDot = '#48CFAD';
-      let colorLine = 'rgba(72, 207, 173, 0.2)';
-
-      function updateColors() {
-        const style = getComputedStyle(document.documentElement);
-        // Use accent color but ensure we have a fallback
-        const accent = style.getPropertyValue('--accent').trim() || '#48CFAD';
-        const fg = style.getPropertyValue('--fg').trim() || '#e9eef4';
-
-        // Convert hex to rgb for rgba manipulation if needed, but for now:
-        // Dots: accent color
-        colorDot = accent;
-        // Lines: faint accent or fg
-        colorLine = accent; // We will use globalAlpha for transparency
+      function colors() {
+        const s = getComputedStyle(document.documentElement);
+        color = s.getPropertyValue('--signal').trim();
+        faint = s.getPropertyValue('--ink-3').trim();
       }
 
-      // Update colors initially and on theme toggle
-      updateColors();
-      const toggle = document.getElementById('themeToggle');
-      if (toggle) toggle.addEventListener('click', () => setTimeout(updateColors, 50));
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * width;
-          this.y = Math.random() * height;
-          this.vx = (Math.random() - 0.5) * config.speed;
-          this.vy = (Math.random() - 0.5) * config.speed;
-          this.size = Math.random() * config.radius + 1;
-        }
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-
-          // Bounce off edges
-          if (this.x < 0 || this.x > width) this.vx *= -1;
-          if (this.y < 0 || this.y > height) this.vy *= -1;
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = colorDot;
-          ctx.globalAlpha = 0.6;
-          ctx.fill();
-        }
-      }
-
-      function init() {
-        resize();
-        particles = [];
-        // Adjust count based on screen size (less on mobile)
-        const density = Math.floor(width * height / 15000);
-        const count = Math.min(config.count, density);
-
-        for (let i = 0; i < count; i++) {
-          particles.push(new Particle());
-        }
+      // Plausible-looking EEG: alpha rhythm that waxes and wanes, slower drift, noise, rare blink
+      let blink = 0;
+      function sample() {
+        t += 1 / 256;
+        const alphaEnv = 0.55 + 0.45 * Math.sin(t * 0.7) * Math.sin(t * 0.23);
+        let v = alphaEnv * Math.sin(2 * Math.PI * 10 * t)
+          + 0.35 * Math.sin(2 * Math.PI * 4.3 * t + 1.3)
+          + 0.25 * Math.sin(2 * Math.PI * 1.1 * t)
+          + 0.18 * Math.sin(2 * Math.PI * 21 * t)
+          + (Math.random() - 0.5) * 0.35;
+        if (blink <= 0 && Math.random() < 0.0009) blink = 1;
+        if (blink > 0) { v += 2.6 * Math.sin(Math.PI * blink); blink -= 0.012; }
+        return v;
       }
 
       function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', () => { resize(); particles.forEach(p => { p.x = Math.min(p.x, width); p.y = Math.min(p.y, height); }); });
-
-      function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        // Check reduced motion
-        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        particles.forEach((p, index) => {
-          if (!reduceMotion) p.update();
-          p.draw();
-
-          // Connect to other particles
-          for (let j = index + 1; j < particles.length; j++) {
-            const p2 = particles[j];
-            const dx = p.x - p2.x;
-            const dy = p.y - p2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < config.dist) {
-              ctx.beginPath();
-              ctx.strokeStyle = colorLine;
-              ctx.globalAlpha = 1 - (dist / config.dist);
-              ctx.lineWidth = 0.5;
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.stroke();
-            }
-          }
-
-          // Connect to mouse
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < config.mouseDist) {
-            ctx.beginPath();
-            ctx.strokeStyle = colorLine;
-            ctx.globalAlpha = 1 - (dist / config.mouseDist);
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
-
-            // Gentle attraction to mouse
-            if (!reduceMotion) {
-              p.x -= dx * 0.005;
-              p.y -= dy * 0.005;
-            }
-          }
-        });
-
-        requestAnimationFrame(animate);
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buf = new Array(Math.ceil(w)).fill(null);
+        x = 0;
+        if (reduce) { for (let i = 0; i < buf.length; i++) buf[i] = sample(); draw(); }
       }
 
-      init();
-      animate();
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const mid = h / 2, amp = h * 0.16;
+        ctx.lineWidth = 1.25;
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        let pen = false;
+        for (let i = 0; i < buf.length; i++) {
+          // gap just ahead of the sweep, like a bedside monitor
+          if (!reduce && i > x && i < x + 24) { pen = false; continue; }
+          const v = buf[i];
+          if (v === null) { pen = false; continue; }
+          const y = mid - v * amp;
+          pen ? ctx.lineTo(i, y) : ctx.moveTo(i, y);
+          pen = true;
+        }
+        ctx.stroke();
+        if (!reduce) {
+          ctx.fillStyle = color;
+          const v = buf[Math.max(0, x - 1)];
+          if (v !== null) { ctx.beginPath(); ctx.arc(x, mid - v * amp, 2.5, 0, Math.PI * 2); ctx.fill(); }
+        }
+      }
+
+      function tick() {
+        // ~3 px per frame, 2 samples per px
+        for (let k = 0; k < 3; k++) {
+          let v = 0;
+          for (let s = 0; s < 2; s++) v = sample();
+          buf[x] = v;
+          x = (x + 1) % buf.length;
+        }
+        draw();
+        requestAnimationFrame(tick);
+      }
+
+      colors();
+      resize();
+      window.addEventListener('resize', resize);
+      window.addEventListener('themechange', () => { colors(); if (reduce) draw(); });
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { colors(); if (reduce) draw(); });
+      if (!reduce) requestAnimationFrame(tick);
+    })();
+
+    // Gallery: arrow buttons + drag to scroll
+    (function () {
+      const g = document.getElementById('gallery');
+      document.querySelectorAll('.gal-btns button').forEach(b => b.addEventListener('click', () => {
+        g.scrollBy({ left: Number(b.dataset.dir) * g.clientWidth * 0.7, behavior: 'smooth' });
+      }));
+      let down = false, startX = 0, startScroll = 0, moved = false;
+      g.addEventListener('pointerdown', e => {
+        if (e.pointerType !== 'mouse' || e.target.tagName === 'VIDEO') return;
+        down = true; moved = false; startX = e.clientX; startScroll = g.scrollLeft;
+      });
+      window.addEventListener('pointermove', e => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (!moved && Math.abs(dx) > 4) { moved = true; g.classList.add('dragging'); }
+        if (moved) g.scrollLeft = startScroll - dx;
+      });
+      window.addEventListener('pointerup', () => { down = false; g.classList.remove('dragging'); });
+    })();
+
+    // ORCID publications
+    (async function () {
+      const list = document.getElementById('pub-list');
+      const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      try {
+        const res = await fetch('https://pub.orcid.org/v3.0/0009-0006-8848-8574/works', { headers: { 'Accept': 'application/json' } });
+        if (!res.ok) throw new Error('ORCID fetch failed');
+        const data = await res.json();
+        const items = (data.group || []).map(g => {
+          const s = g['work-summary']?.[0];
+          if (!s) return null;
+          const ext = s['external-ids']?.['external-id'] || [];
+          const doi = ext.find(e => e['external-id-type']?.toLowerCase() === 'doi');
+          return {
+            title: s.title?.title?.value || 'Untitled',
+            year: s['publication-date']?.year?.value || '',
+            venue: s['journal-title']?.value || '',
+            url: doi ? 'https://doi.org/' + doi['external-id-value'] : s.url?.value
+          };
+        }).filter(Boolean).sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
+        if (!items.length) { list.innerHTML = '<li><span class="when meta">—</span><div><h3>No publications found on ORCID.</h3></div></li>'; return; }
+        list.innerHTML = items.map(it => {
+          const body = `<h3>${esc(it.title)}</h3>${it.venue ? `<div class="org">${esc(it.venue)}</div>` : ''}`;
+          return `<li><span class="when meta">${esc(it.year)}</span><div>${it.url ? `<a href="${esc(it.url)}" target="_blank" rel="noopener">${body}</a>` : body}</div></li>`;
+        }).join('');
+      } catch (err) {
+        list.innerHTML = `<li><span class="when meta">—</span><div><h3>Couldn't reach ORCID right now.</h3><div class="org"><a href="https://orcid.org/0009-0006-8848-8574">See the list on ORCID ↗</a></div></div></li>`;
+      }
     })();
   </script>
 </body>
